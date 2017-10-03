@@ -1,0 +1,1686 @@
+id,label,timeset,comment,modifier,codelines,type,type
+158,InfoJavaElement,,"Implementation de IInfoElement, la classe InfoJavaElement permet d'obtenir toutes les informations de IInfoElement pour un element java.  @see ASTParser @see JavadocContentAccess @see JavaElementLabels @author Sebastien Heymann et Jeremy Palmier   @see JavadocContentAccess @see JavaElemen",public,323,class,0
+235,GEXFExporter,,"Formatage des donnees en GEXF. Manuel :
+ http://gephi.org/community/gexf-graph-exchange-xml-format/
+ 
+ @author Sebastien Heymann
+ 
+ anuel :
+ http://gephi.org/community/gexf-graph-exchange-xml-format/",public,1058,class,0
+316,StdPage,,,public,593,class,0
+417,ExtensionUtil,,@author Palmier,public,407,class,0
+515,CodeData,,@author Palmier,public,529,class,0
+527,ExtendedMethodDependanceDetector,,@author Palmier,public,529,class,0
+628,StdAnalyse,,"<p> The class StdAnalyse provide both an user interface for set preference for the analysis and functions which create the parser and exporter instance.<br * /> Initialisation : <ol> <li> {@link StdAnalyse#StdAnalyse()}</li> <li>{@link StdAnalyse#setProject(IProject)}</li> </ol> Run : <ol> <li> {@link StdAnalyse#schedule()}</li> </ol>  @author Jeremy Palmier         </p> un : <ol>",public,390,class,0
+530,ParserJava,,"<dd>L'Etape1 est une extension pour analyser les ressources Java (IJavaElement ou IResource) et produire un element CodeData,</dd> <p> <i> codeData contenant des informations sur les elements (classe, methode, package ...) ainsi que les relations entre ces elements (implementation, heritage, dependance...) du projet analyse. </i> </p>  @author Sebastien Heymann et Jeremy Palmier  age, d",public,280,class,0
+611,AbstractExporter,,"Classe de base des extension permettant l'exportation du codeAnalyse.  @author Sebastien Heymann et Jeremy Palmier @see IExporter @see CodeDataChangesListener lyse.  @author Sebastien Heyman",public abstract,277,class,0
+174,CodeminerRessourceVisitor,,@author Palmier,public,265,class,0
+319,CodeDataTest,,@author Sebastien Heymann et Jeremy Palmier,public,242,class,0
+502,ResultAreaDialog,,@author jpalmier,public,205,class,0
+245,ExtensionListEditorControl,,,public,202,class,0
+157,EnumFileContent<T>,,"Enumere tous les elements d'un projet Java. Plusieur filtres sont effectues sur ces elements. <li>1. un filtre sur les types. <p> Ce filtre se trouve dans isEnable. Si le type d'un element n'est pas dans les type Ã  retourner, celui ci ne sera pas retourne. Cependant <b>les fils de cet element pourront etre analyses</b>. </p> </p> <li>1. un filtre sur les Ã©lÃ©ments exclus. <p> Il est possible d'exclure des element en passant au constructeur la liste des Ã©lement exclus. Un element exclu ne sera pas retourne. Au contraire du filtre sur les types,<b> les fils de l'element exclu ne seront pas analyses</b>. </p>  @author Sebastien Heymann et JÃ©rÃ©my Palmier  l'element exclu ne seron",public,196,class,0
+683,ShowsScenarioPulldownAction,,,public,193,class,0
+226,GDFExporter,,"Formatage des donnees en GDF. Manuel du format : http://guess.wikispot.org/The_GUESS_.gdf_format  @author Sebastien Heymann et Jeremy Palmier   http://guess.wikispot.org/The_GUESS_.gdf_format",public,186,class,0
+188,MainPage,,@author Palmier,public,154,class,0
+566,DebugLogger,,"Force l'affichage de tous les messages de log dans System.out.
+ 
+ @author Sebastien Heymann
+ 
+ 
+         Les classe de Log sont dÃ©precated, les log sont dÃ©finie dans les
+         plugin eclipse voir :
+         http://wiki.eclipse.org/FAQ_How_do_I_use_the_platform_logging_facility
+         %3F
+         http://publib.boulder.ibm.com/infocenter/ledoc/v6r11/index.jsp?topic
+         =/com.ibm.rcp.tools.doc.appdev/serviceability_eclipselogging.html
+ c/v6r11/index.jsp?topic
+         =/com.ibm.rcp.tool",public,153,class,0
+268,AlgorithmCodeData,,,public,144,class,0
+146,TestEnumFileContent,,,public,137,class,0
+113,PreferenceUtil,,,public,130,class,0
+434,build(ICodeData),,"Main function, create the GDF.  @param data @param elementTypes @return",private,123,method,2
+16,Etape1Test,,@author Palmier,public,113,class,0
+128,"build(ICodeData, long, Collection<String>)",,"Insert new data in the document.
+ 
+ @param data
+ @param changedElements",private,107,method,2
+144,IWriteElement<T>,,"@author Palmier  @param <T>",public interface,105,class,0
+404,StdAnalyseWithPreference,,"<p> The class StdAnalyse provide both an user interface for set preference for the analysis and functions which create the parser and exporter instance.<br * /> Initialisation : <ol> <li> {@link StdAnalyse#StdAnalyse()}</li> <li>{@link StdAnalyse#setProject(IProject)}</li> </ol> Run : <ol> <li> {@link StdAnalyse#schedule()}</li> </ol>  @author Jeremy Palmier         </p> un : <ol>",public,101,class,0
+658,buildMissingDependencies(List<String>),,"Construit les relations de dependances manquantes a cause des types d'elements supprimes. Les relations de bas niveau supprimes remontent dans l'arbre.  @param elementTypes @return es. Les rela",protected,99,method,2
+435,getMenu(Control),,"La fonction getMenu calcule dynamiquement le menu deroulant lors d'un clic sur le bouton codeminer dans la toolbar.  @see org.eclipse.ui.IWorkbenchWindowPulldownDelegate#getMenu(org.eclipse.swt.widgets.Control) .  @see org.eclipse.ui.IWorkbenchWindowPulldownDelegate#getMenu(org.eclipse.swt.wi",public,94,method,2
+293,visit(ClassInstanceCreation),,"Ajoute les dependances pour les appels a New de differentes class. ex : <br> <code> class C {public void test3(){A test = new A();test.value = ""coucou"";}}</code> <br> la node retournee sera ""new A();""  <br> <p> Class instance creation expression AST node type. For JLS2: ClassInstanceCreation: </p>  <code>        [ Expression . ] new Name<br><dd>( [ Expression { , Expression } ] )<br><dd>[ AnonymousClassDeclaration ]</code> <p> For JLS3, type arguments are added and the type name is generalized to a type so that parameterized types can be instantiated: ClassInstanceCreation: </p> <code>[ Expression . ]<br><dd> new [ < Type { , Type } > ]<br><dd>   Type ( [ Expression { , Expression } ] )<br><dd> [ AnonymousClassDeclaration ]</code> <p> Not all node arragements will represent legal Java constructs. In particular, it is nonsense if the type is a primitive type or an array type (primitive types cannot be instantiated, and array creations must be represented with ArrayCreation nodes). The normal use is when the type is a simple, qualified, or parameterized type.  A type like ""A.B"" can be represented either of two ways: QualifiedType(SimpleType(SimpleName(""A"")),SimpleName(""B"")) SimpleType(QualifiedName(SimpleName(""A""),SimpleName(""B""))) The first form is preferred when ""A"" is known to be a type (as opposed to a package). However, a parser cannot always determine this. Clients should be prepared to handle either rather than make assumptions. (Note also that the first form became possible as of JLS3; only the second form existed in JLS2.) </p> lso that the first form became possible as of JLS3; only the second form existed in JL",public,89,method,2
+739,StatusLabelProvider,,,protected,88,class,0
+264,Activator,,The activator class controls the plug-in life cycle.,public,85,class,0
+500,addElementProperties(IJavaElement),,,public,81,method,2
+104,"getChangedElement(ICodeData, ICodeData)",,,public static,76,method,2
+189,init(),,Create the document and its GEXF structure.,public,73,method,2
+244,ArgumentUtil,,"Classe utilitaire.  @author Jeremy Palmier",public,66,class,0
+57,IInfoElement<T>,,"L'interface IInfoElement contient les fonctions permettant d'obtenir les informations ou les relations concernant un element. <p> Chaque element est defini par une valeur unique du type T. T doit donc avoir defini une fonction equal(Object a) </p> <p> <i> Ces informations sont les proprietes de l'elements ou, pour une dependance entre deux elements, les proprietes que porte cette dependance.  </p>  @author Sebastien Heymann et Jeremy Palmier  @param <T>  @version 1.03 la fonction getDependsProperties est modifier, la structure          Pair est utilisï¿½es en argument  @since 1.00 pendsProperties est modifier, la structure          Pair est utilisï¿½es en argument  @sin",public interface,64,class,0
+66,"addChooseProject(Composite, int)",,,public,64,method,2
+715,SerializedExporter,,,public,63,class,0
+277,TestActivator,,"Our sample action implements workbench action delegate. The action proxy will
+ be created by the workbench and shown in the UI. When the user tries to use
+ the action, this delegate will be created and execution will be delegated to
+ it.
+ 
+ @see IWorkbenchWindowActionDelegate
+ ate will be created a",public,61,class,0
+370,"updateDependsLink(String, String, String, Element)",,"@param dataID
+ @param gexfID
+ @param revision
+ @param n",private,59,method,2
+649,"updateNode(String, String, String, String, String, String, String)",,"@param dataID
+ @param gexfID
+ @param revision
+ @param type
+ @param codelines
+ @param modifier
+ @param comment
+ @return
+ m gexfID
+ @param revision
+ @param type
+ @param codelines
+ @param modifier
+ @p",private,59,method,2
+197,launchWizard(),,,protected,57,method,2
+141,"deleteElement(String, String)",,"@param elemID
+ @param revision",private,56,method,2
+213,run(IProgressMonitor),,"Methode principale du job, cette methode est executee lors de {@link Job#schedule()}.  @see codeminer.api.ui.AbstractScenario#run(org.eclipse.core.runtime.IProgressMonitor) edule()}.  @see code",public,56,method,2
+591,testAddDepensProperties(),,,public,56,method,2
+51,visit(Object),,,public,55,method,2
+286,AbstractParser,,"Classe de base des extensions permettant l'analyse du code d'un projet.  @author Sebastien Heymann et Jeremy Palmier @see ICodeMinerParser analyse du code d'un projet.  @author Sebastien Heyman",public abstract,54,class,0
+248,testIntrospectionFunction(),,,public,51,method,2
+298,run(IProgressMonitor),,"Executes this job.  Returns the result of the execution.
+ <p>
+ The provided monitor can be used to report progress and respond to 
+ cancellation.  If the progress monitor has been canceled, the job
+ should finish its execution at the earliest convenience and return a result
+ status of severity {@link IStatus#CANCEL}.  The singleton
+ cancel status {@link Status#CANCEL_STATUS} can be used for
+ this purpose.  The monitor is only valid for the duration of the invocation
+ of this method.
+ <p>
+ This method must not be called directly by clients.  Clients should call
+ <code>schedule</code>, which will in turn cause this method to be called.
+ <p>
+ Jobs can optionally finish their execution asynchronously (in another thread) by 
+ returning a result status of {@link #ASYNC_FINISH}.  Jobs that finish
+ asynchronously <b>must</b> specify the execution thread by calling
+ <code>setThread</code>, and must indicate when they are finished by calling
+ the method <code>done</code>.
+ 
+ @param monitor the monitor to be used for reporting progress and
+ responding to cancelation. The monitor is never <code>null</code>
+ @return resulting status of the run. The result must not be <code>null</code>
+ @see #ASYNC_FINISH
+ @see #done(IStatus)
+ atus of the run. The result must not be <code>null</code>
+ @see #A",public,51,method,2
+140,"updateImplementsLink(String, String, String, Element)",,"@param dataID
+ @param gexfID
+ @param revision
+ @param n",private,50,method,2
+626,Pair<T>,,"<pre> Pair permet de creer des indentificateur de deux variable. La fonction equals doit avoir Ã©tait implementer pour le type T. De mÃªme la fonction hasCode doit Ãªtre implementÃ© </pre>  @author Palmier  @param <T>   e T. De mÃªme la fonction hasCode doit Ãªtre implementÃ© </pre>  @author P",public,50,class,0
+315,StdWizardAnalysis,,,public,49,class,0
+447,"updateHeritsLink(String, String, String, Element)",,"@param dataID
+ @param gexfID
+ @param revision
+ @param n",private,49,method,2
+326,TestProject,,,public,47,class,0
+368,TestTree,,,,47,class,0
+481,"addDepends_Triggers_Before(Pair<String>, Map<String, Object>)",,"@param dependsKey @param newDependanceProperties            nouvelle propriï¿½tï¿½ de dï¿½pendance pour la dï¿½pendance dependsKey            les valeur des propriï¿½tï¿½ de newDependanceProperties sont            modifiï¿½ par r�",protected,47,method,2
+690,visit(TypeDeclaration),,"Visits the given type-specific AST node.
+ <p>
+ The default implementation does nothing and return true.
+ Subclasses may reimplement.
+ </p>
+
+ @param node the node to visit
+ @return <code>true</code> if the children of this node should be
+ visited, and <code>false</code> if the children of this node should
+ be skipped
+ is node should be
+ visited, and <code>false</code> if the children of this node",public,47,method,2
+688,"updateParentLink(String, String, String, Element)",,"@param dataID
+ @param gexfID
+ @param revision
+ @param n",private,45,method,2
+709,fillListParser(),,,protected,44,method,2
+247,LogManager,,"Gere les loggers de CodeMiner, instancie un logger singleton. Instancie le
+ logger forcant l'ecriture de System.out si le mode DEBUG est active dans les
+ preferences.
+ 
+ @author Sebastien Heymann",public,42,class,0
+409,"initWriters(IProject, ArrayList<String>, IProgressMonitor)",,"Initialise le writer, principalement creer dans la fonction {@link StdAnalyse#run(IProgressMonitor)} avec le projet passe en parametre et le moniteur.  @param targetProject            le projet permet de calculer les chemins dans lesquels les            fichier seront exportes @param monitor rmet de calculer les chemins dans lesquels les            fichier seront exportes @param monitor",protected,42,method,2
+348,"getColumnText(Object, int)",,"Returns the label text for the given column of the given element.
+
+ @param element the object representing the entire row, or
+   <code>null</code> indicating that no input object is set
+   in the viewer
+ @param columnIndex the zero-based index of the column in which the label appears
+ @return String or or <code>null</code> if there is no text for the 
+  given object at columnIndex
+  @return Strin",public,39,method,2
+349,PairTest,,"Test unitaire pour la classe {@link Pair}  @author JÃ©rÃ©my Palmier",public,39,class,0
+81,createDialogArea(Composite),,,protected,38,method,2
+285,"addNode(String, String, String, String, String, String, String)",,"@param dataID
+ @param gexfID
+ @param revision
+ @param type
+ @param codelines
+ @param modifier
+ @param comment
+ @return
+ m gexfID
+ @param revision
+ @param type
+ @param codelines
+ @param modifier
+ @p",private,38,method,2
+674,IExporter,,"Interface de module d'export.  @author Sebastien Heymann et Jeremy Palmier",public interface,38,class,0
+443,"getColumnImage(Object, int)",,"Returns the label image for the given column of the given element.
+
+ @param element the object representing the entire row, or 
+    <code>null</code> indicating that no input object is set
+    in the viewer
+ @param columnIndex the zero-based index of the column in which
+   the label appears
+ @return Image or <code>null</code> if there is no image for the 
+  given object at columnIndex
+ rs
+ @retur",public,37,method,2
+516,checkStateChanged(CheckStateChangedEvent),,"Notifies of a change to the checked state of an element.
+
+ @param event event object describing the change
+  of a change to the checked state of an element.
+
+ @param event event object describing the",public,37,method,2
+135,visit(FieldAccess),,"<ul> ;  Note that there are several kinds of expressions that resemble field access expressions: qualified names, this expressions, and super field access expressions. The following guidelines help with correct usage: <li>An expression like ""foo.this"" can only be represented as a this expression (ThisExpression) containing a simple name. ""this"" is a keyword, and therefore invalid as an identifier.</li> <li>An expression like ""this.foo"" can only be represented as a field access expression (FieldAccess) containing a this expression and a simple name. Again, this is because ""this"" is a keyword, and therefore invalid as an identifier.</li> <li>An expression with ""super"" can only be represented as a super field access expression (SuperFieldAccess). ""super"" is a also keyword, and therefore invalid as an identifier.</li> <li>An expression like ""foo.bar"" can be represented either as a qualified name (QualifiedName) or as a field access expression (FieldAccess) containing simple names. Either is acceptable, and there is no way to choose between them without information about what the names resolve to (ASTParser may return either).</li> <li>Other expressions ending in an identifier, such as ""foo().bar"" can only be represented as field access expressions (FieldAccess).</ul> ier, such as ""foo().bar"" can only be represented as field access expressions (FieldAccess)",public,36,method,2
+227,getImplements(IJavaElement),,,public,36,method,2
+290,applyToStatusLine(IStatus),,,private,36,method,2
+331,MainInitializer,,Class used to initialize default preference values.,public,36,class,0
+577,endVisit(Object),,,public,36,method,2
+117,Page,,,public,35,class,0
+251,"write(Object, List<String>, String)",,"Cree le fichier s'il n'existe pas et lance l'ecriture des donnÃ©e via PrintWriter.  @param dataFile @param elementTypes @param extension @return Vrai si l'ecriture du fichier s'est bien terminee, faux sinon. @throws IOException nsion @return Vrai si l'ecriture du fichier s'est bien terminee",protected,35,method,2
+266,"addMissingDependencies(Map<String, HashMap<String, Integer>>, String)",,@param missingDependencies,private,35,method,2
+547,EnumFileContentJava,,"Enumere tous les elements d'un projet Java. Plusieur filtres sont effectues sur ces elements. <li>1. un filtre sur les types. <p> Ce filtre se trouve dans isEnable. Si le type d'un element n'est pas dans les type Ã  retourner, celui ci ne sera pas retourne. Cependant <b>les fils de cet element pourront etre analyses</b>. </p> </p> <li>1. un filtre sur les Ã©lÃ©ments exclus. <p> Il est possible d'exclure des element en passant au constructeur la liste des Ã©lement exclus. Un element exclu ne sera pas retourne. Au contraire du filtre sur les types,<b> les fils de l'element exclu ne seront pas analyses</b>. </p>  @author Sebastien Heymann et JÃ©rÃ©my Palmier  l'element exclu ne seron",public,35,class,0
+676,"addDependencyLink(String, String, String, Element)",,"@param dataID
+ @param gexfID
+ @param revision
+ @param n",private,35,method,2
+221,performFinish(),,@return,protected,34,method,2
+222,"getChildDepth(ICodeData, String)",,"Retourne tous les fils de l'Ã©lÃ©ment parent  @param idElementParent @return",public static,34,method,2
+296,fillListType(),,,protected,34,method,2
+685,visit(MethodInvocation),,"Ajoute les fonctions appelees dans les dependances sans restrictions.  <p> Method invocation expression AST node type. For JLS2: MethodInvocation: <p> <code>[ Expression . ] Identifier( [ Expression { , Expression } ] )</code> <p> For JLS3, type arguments are added: MethodInvocation: </p> <code>	     [ Expression . ][ < Type { , Type } > ]Identifier ( [ Expression { , Expression } ] )</code>    [ Expression . ][ < Type { , Type } > ]Identifier ( [ Expression { , Expression } ]",public,34,method,2
+49,StandardLogger,,"Se comporte comme le Logger de Java sauf pour les messages de niveau SEVERE,
+ dont l'affichage sont forces sur System.out.
+ 
+ @author Sebastien Heymann
+ 
+ ges de niveau SEVERE,
+ dont l'affichage sont",public,33,class,0
+87,"addChooseOutput(Composite, int)",,,public,33,method,2
+126,addExportFormat(),,"Ajoute au prÃ©fÃ©rence un menu dÃ©roulant permettant de choisir un des
+ diffÃ©rents formats d'export",protected,33,method,2
+229,Initialiser,,,public,33,class,0
+342,ProjectUtil,,"Classe utilitaire, permettant de recuperer plus facilement des informations sur IProject.  @see IProject @author Sebastien Heymann et Jeremy Palmier ment des informations sur IProject.  @see",public,33,class,0
+572,"add(ICodeData, Collection<String>)",,"Cette fonction ajoute ï¿½ la base, l'ensemble des ï¿½lements listElement provenant de data.  @param data @param listElement a base, l'ensemble des ï¿½lements listElement provenant de data.  @param",public,33,method,2
+582,MyListEditor,,,protected,33,class,0
+697,new SelectionAdapter() {...},,,,33,class,0
+720,getHerit(IJavaElement),,,public,33,method,2
+63,"createGraphEdge(Integer, String, String, String, String, String, String, String)",,"@param id
+ @param source
+ @param target
+ @param type
+ @param card
+ @param relationtype
+ @param stepfrom
+ @param stepto
+ @return
+ ram target
+ @param type
+ @param card
+ @param relationtype
+ @param st",private,32,method,2
+79,selectProject_UI(),,,protected,32,method,2
+396,searchParserValid(IProject),,,public static,32,method,2
+644,getProperties(IJavaElement),,"@param element @return une hashMap corespondant Ã  l'Ã©lÃ©ment. (si l'Ã©lÃ©ment n'existe pas         une hashmpap vide est nÃ©anmoins retourner""); dant Ã  l'Ã©lÃ©ment. (si l'Ã©lÃ©ment n'existe pas         u",public,32,method,2
+168,StringLabel,,,protected,31,class,0
+267,isFinished(),,"If either the parser and exporter were not initialised we considered that the scenario is finished. If there were initialised, the function will test the result of the different job, if all the job are finished, the scenario is finished.  @see codeminer.api.ui.AbstractScenario#isFinished() ob",public,31,method,2
+303,finalizeExport(),,"Finish some work and write the file.  @return",public,31,method,2
+362,getExtensionInfo(String),,"Returns info about all configuration elements from all extensions configured into the identified extension point.  Returns an empty array if the extension point does not exist, has no extensions configured, or none of the extensions contain configuration elements.  @param extensionPointId            the unique identifier of the extension point  @return the list of pair ( extensionId,extensionName ) from all         extensions configured   @return the list of pair ( extensionId,ext",public static,31,method,2
+378,"freezeIncomingLinks(String, String)",,"@param gexfID
+ @param revision",private,31,method,2
+698,initializeDefaultPreferences(),,"@see org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer#initializeDefaultPreferences()
+  org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer#initializeDefaultPrefer",public,31,method,2
+106,"nextElement(boolean, IElementVisitor<Object>)",,,public,30,method,2
+249,finalizeExport(),,"Finish some work and write the file.  @return",public,30,method,2
+389,ProjectJavaInfo,,,public,30,class,0
+468,"addImplementLink(String, String, String, Element)",,"@param dataID
+ @param gexfID
+ @param revision
+ @param n",private,30,method,2
+661,"addHeritanceLink(String, String, String, Element)",,"@param dataID
+ @param gexfID
+ @param revision
+ @param n",private,30,method,2
+713,widgetSelected(SelectionEvent),,"Sent when selection occurs in the control.
+ The default behavior is to do nothing.
+
+ @param e an event containing information about the selection
+  default behavior is to do nothing.
+
+ @param e an ev",public,30,method,2
+69,getComment(IJavaElement),,"Retourne le commentaire associer aux IJavaElement : IMember ayant un commentaire javadoc",public,29,method,2
+99,"addDependency(String, IJavaElement)",,"Permet une dependance fonction ï¿½ la fonction en cours  @param method",protected,29,method,2
+145,searchWriter(ArrayList<String>),,"Recherche un exporteur parmis les fragments de plugin disponibles.  @throws Exception",public static,29,method,2
+256,toString(),,,public,29,method,2
+302,createParser(IConfigurationElement),,"Cree le parser.  @param configurationElement @param currentProject @return Parseur abstrait",public static,29,method,2
+470,"doFillIntoGrid(Composite, int)",,"Fills this field editor's basic controls into the given parent.
+ <p>
+ Subclasses must implement this method to create the controls
+ for this field editor.
+ </p>
+
+ @param parent the composite used as a parent for the basic controls;
+	the parent's layout must be a <code>GridLayout</code>
+ @param numColumns the number of columns
+ s;
+	the parent's layout must be a <code>GridLayout</code>
+ @param numC",protected,29,method,2
+495,PairLabelProvider,,,static,29,class,0
+703,ICodeData,,"<p> ICodeData est une interface qui permet l'acsÃ¨s aux information qui sont contenue dans le codesource d'un projet. </p> // TODO The English version is not well written</p> <p> ICodeData is an interface which provide function to aces to piece of information contain in the code of a project. </p>  @author Jeremy Palmier   aces to piece of information contain in the code of a project.",public interface,29,class,0
+13,nextChild(EnumState),,,protected,28,method,2
+261,getConfigurationsInfo(Collection<IConfigurationElement>),,"Returns info (a list of Pair : extensionId,extensionName )concerning these configuration element.  @param listConfiguration @return ionId,extensionName )concerning these configuration element.",public static,27,method,2
+528,getPackageNbCodelines(String),,"@param id
+ @return",private,27,method,2
+548,visit(SuperMethodInvocation),,"<p> Simple or qualified ""super"" method invocation expression AST node type. For JLS2:  SuperMethodInvocation: </p> <code> [ ClassName . ] super . Identifier<dd>  ( [ Expression { , Expression } ] )</code>  @see org.eclipse.jdt.core.dom.ASTVisitor#visit(org.eclipse.jdt.core.dom.SuperMethodInvocation)   @see org.eclipse.jdt.core.dom.ASTVisitor#visit(org.eclipse.jdt.core.dom.SuperMetho",public,27,method,2
+38,IProjectInfo,,"This class get main informations about the parser and allow to create an instance of this parser.  @author Jï¿½rï¿½my Palmier  ions about the parser and allow to create an instance of this parser.",public interface,26,class,0
+73,"getDeletedElementInElement(ICodeData, ICodeData, String)",,"Calcul la liste des Ã©lÃ©ments qui sont les fils de idElementParent qui ont Ã©tÃ© supprimer de CodeData entrre la version old et la nouvelle  @param oldCodeData @param newCodeData @param idElementParent @return sion old et la nouvelle  @param oldCodeData @param newCodeData @param idElementPa",public static,26,method,2
+710,"addParentLink(String, String, String, Element)",,"@param dataID
+ @param gexfID
+ @param revision
+ @param n",private,26,method,2
+84,launchAnalyze(),,"prerequis : <ul> <li> {@link StdAnalyse#data_repository} != null</li> <li> {@link StdAnalyse#listExporter} != null</li> <li> {@link StdAnalyse#parserJob} != null</li> <li> {@link StdAnalyse#listType} != null</li> <li> {@link StdAnalyse#currentMonitor} != null</li> </ul>  @return lyse#list",protected,25,method,2
+107,new MouseAdapter() {...},,,,25,class,0
+110,testEtape1(),,Test method for {@link deprecated.Etape1#Etape1()}.,public,25,method,2
+220,initializeDefaultPreferences(),,"This method is called by the preference initializer to initialize default
+ preference values. Clients should get the correct node for their 
+ bundle and then set the default values on it. For example:
+ <pre>
+			public void initializeDefaultPreferences() {
+				Preferences node = new DefaultScope().getNode(""my.bundle.id"");
+				node.put(key, value);
+			}
+ </pre>
+ <p>
+ <em>Note: Clients should only set default preference values for their
+ own bundle.</em>
+ </p>
+ <p>
+ <em>Note:</em> Clients should not call this method. It will be called
+ automatically by the preference initializer when the appropriate default
+ preference node is accessed.
+ </p>
+ lly by the preference initializer when the appropr",public,25,method,2
+416,removeElement(String),,"Supprime un ï¿½lï¿½ment et tous ses fils  @param idElement @return true si l'ï¿½lï¿½ment idElement ï¿½tait dans la base, et a donc ï¿½tï¿½         suprimmï¿½. Sinon la fonction retourne false et ne fait rien. t",public,25,method,2
+465,getCodeLength(IJavaElement),,"@param element @return",public,25,method,2
+595,Page,,,public,25,class,0
+680,"addListExporterModule(Composite, int)",,,public,25,method,2
+729,fillListExporter(),,,protected,25,method,2
+20,finalizeExport(IProgressMonitor),,"Finalise les exports de tous les modules. Si l'export d'un module echoue les finalisations restantes ne sont pas effectuees.  @param exportModules            liste des modules a exporter @return  ne sont pas effectuees.  @param exportModules            liste des modules a exporter @return",public,24,method,2
+83,ICodeMinerParser,,"Interface de module de parsing.  @author Sebastien Heymann et Jeremy Palmier",public interface,24,class,0
+243,"initParser(IProject, IProgressMonitor)",,"Intialise le parser, precedemment cree dans la fonction {@link StdAnalyse#run(IProgressMonitor)} avec le projet passe en parametre et le monitor.  @param targetProject @param monitor onitor)} a",protected,24,method,2
+291,searchData(String),,"Recherche un exporteur parmis les fragments de plugin disponibles.  @throws Exception",public static,24,method,2
+313,"addDepends(Pair<String>, Map<String, Object>)",,"Ajoute une dependance entre l'element source idElementSource et idElementTarget. Si la dependance n'existait pas, les proprietes sont ajoutees pour decrire la dependance, sinon si l'Ã©lÃ©ment existait dÃ©ja les nouvelles proprietes ne seron pas prises en compte, cependant le nombre de dependances sera incremente de 1.  Note: Il est possible de modifier les proprietes d'une dependance en modifiant le dictionnaire des proprietes retourne par getDepensProperties(). d'une dependance en modif",,24,method,2
+383,StringUtil,,,public abstract,24,class,0
+488,"addDepends(Pair<String>, Map<String, Object>)",,"Ajoute une dependance entre l'element source idElementSource et idElementTarget. Si la dependance n'existait pas, les proprietes sont ajoutees pour decrire la dependance, sinon les nouvelles proprietes ne sont pas prises en compte, cependant le nombre de dependances est incremente de 1.  Note: Il est possible de modifier les proprietes d'une dependance en modifiant le dictionnaire des proprietes retourne par getDepensProperties(). d'une dependance en modifiant le dictionnaire des prop",public,24,method,2
+617,ParserJava(),,Construction de l'instance du parseur Java.,public,24,method,2
+5,resolveRessource(IStructuredSelection),,"Cette fonction permet a partir d'une selection du type {@link IStructuredSelection} d'obtenir l'objet {@link IResource} corespondant.  @param selection @return l'objet IRessource selectioner, si aucune ressource n'est         selectionner la fonction retourne null  IRessource selectioner, si",protected,23,method,2
+15,visit(SuperConstructorInvocation),,"Visits the given type-specific AST node.
+ <p>
+ The default implementation does nothing and return true.
+ Subclasses may reimplement.
+ </p>
+
+ @param node the node to visit
+ @return <code>true</code> if the children of this node should be
+ visited, and <code>false</code> if the children of this node should
+ be skipped
+ is node should be
+ visited, and <code>false</code> if the children of this node",public,23,method,2
+359,"addElementInListMap(Map<String, ArrayList<String>>, String, String)",,"Ajoute un element et sa valeur dans le dictionaire. Si l'element existe deja alors la valeur est ajoutee dans la liste associee a l'element. <p> <i>Si la valeur a deja ete ajoutee dans la liste de l'element, alors cette valeur n'est pas ajoutee.</i> </p> ur a deja ete ajoutee dans la liste de",protected static,23,method,2
+428,visit(ParameterizedType),,"Type node for a parameterized type (added in JLS3 API). These nodes are used for type references (as opposed to declarations of parameterized types.)  ParameterizedType: Type < Type { , Type } >  The first type may be a simple type or a qualified type; other kinds of types are meaningless.  @see org.eclipse.jdt.core.dom.ASTVisitor#visit(org.eclipse.jdt.core.dom.ParameterizedType) ess.",public,23,method,2
+479,Reader,,,public abstract,23,class,0
+529,"getDirectory(IProject, String)",,"Retourne la reference du repertoire directory dans currentProject. Si directory commence par ""$project/"" alors le repertoire fait partie du projet courant, sinon il peut etre partout dans le systeme.  @param currentProject            un projet != null @param directory            nom du repertoire != null @return Chemin du repertoire directory ll @param directory            nom du reper",public static,23,method,2
+550,visit(VariableDeclarationFragment),,"Visits the given type-specific AST node.
+ <p>
+ The default implementation does nothing and return true.
+ Subclasses may reimplement.
+ </p>
+
+ @param node the node to visit
+ @return <code>true</code> if the children of this node should be
+ visited, and <code>false</code> if the children of this node should
+ be skipped
+ is node should be
+ visited, and <code>false</code> if the children of this node",public,23,method,2
+602,mouseDown(MouseEvent),,"Sent when a mouse button is pressed.
+ The default behavior is to do nothing.
+
+ @param e an event containing information about the mouse button press
+ behavior is to do nothing.
+
+ @param e an event co",public,23,method,2
+669,getModifier(IJavaElement),,"Return a string describing the access modifier flags in the specified modifier. For example: public final synchronized strictfp The full modifier ordering used by this method is: public protected private abstract static final transient volatile synchronized native strictfp interface rotected p",public,23,method,2
+743,visit(QualifiedName),,"AST node for a qualified name. A qualified name is defined recursively as a simple name preceded by a name, which qualifies it. Expressing it this way means that the qualifier and the simple name get their own AST nodes.  QualifiedName: Name . SimpleName  @See FieldAccess for guidelines on handling other expressions that      resemble qualified names. @See FieldAccess for guidelines on ha",public,23,method,2
+346,testRemoveElement(),,,public,22,method,2
+684,addDependencyProperties(ICompilationUnit),,,public,22,method,2
+30,init(),,,private,21,method,2
+48,createWriter(IConfigurationElement),,"Cree un abstractExporter  @param configurationElement            un point d'extension != null @param exportFormat            type de format a exporter != null   un point d'extension != null @",public static,21,method,2
+169,getExportableTypes(),,"Beark!  @return",public static,21,method,2
+181,"getCompatibleElement(String, List<String>)",,"Retourne l'identifiant de l'element si sont type n'est pas destine a etre supprime, sinon la fonction tente de trouver un parent de idElem qui ne soit pas a supprimer.  @param id            Element identifier @param elementTypes @return id soit pas a supprimer.  @param id            Elem",protected,21,method,2
+191,getListTypeParser(IConfigurationElement),,"@param parser @return",public static,21,method,2
+231,getParent(IJavaElement),,"Retourne l'Ã©lÃ©ment parent contenant l'Ã©lÃ©ment fils sur la relation contenant/contenue.  @param elementFils @return arent contenant l'Ã©lÃ©ment fils sur la relation contenant/contenue.  @param e",public,21,method,2
+398,getKey(Object),,"{@inheritDoc ICodeMinerParser#getKey(Object)} La fonction getKey retourne l'identifiant des Ã©lÃ©ments de type IRessource ou IJavaElement  @see codeminer.api.ICodeMinerParser#getKey(java.lang.Object) de type IRessource ou IJavaElement  @see codeminer.api.ICodeMinerParser#getKey(java.lang.Object",public,21,method,2
+510,"join(Object[], String)",,"Function from Keith Devens .com for join String  @param pieces @param sep @return Chaine concatenee ion from Keith Devens .com for join String  @param pieces @param sep @return Chaine concat",public static,21,method,2
+562,setExportableTypes(List<String>),,@param truePrefs,public static,21,method,2
+564,accept(IElementVisitor<Object>),,,public,21,method,2
+650,nextChild(),,"Retourne le prochain fils du dernier Ã©tat de la file. prerequis : la pile stackElement contient au moins un Ã©lement in fils du dernier Ã©tat de la file. prerequis : la pile stackElement contient",public,21,method,2
+664,IDependsPoperty<T>,,"<p> Cette interface reprï¿½sente les dï¿½pendances fonctionelle entre deux elements. </p> <p> This interface represents an dependency between two element. </p>  @param <T>  @author Palmier @version 1.03 epresents an dependency between two element. </p>  @param <T>  @author Palmier @ver",public interface,21,class,0
+724,"addListType(Composite, int)",,,public,21,method,2
+162,Initialiser,,,public,20,class,0
+165,"getHigherParent(String, List<String>)",,"Retourne l'identifiant du parent de l'element de niveau le plus proche qui ne soit pas supprime.  @param id            Element identifier @param elementTypes @return id ne soit pas supprime.",protected,20,method,2
+311,"createParserTable(Composite, int)",,,protected,20,method,2
+390,addDataExtension(),,"Ajoute aux prÃ©fÃ©rences un menu dÃ©roulant permettant de choisir une des
+ diffÃ©rentes extensions de gestion des donnÃ©es.
+ es un menu dÃ©roulant permettant de choisir une des
+ diffÃ©rentes extensions de g",public,20,method,2
+524,"createExporterTable(Composite, int)",,,protected,20,method,2
+28,run(IAction),,"The action has been activated. The argument of the method represents the
+ 'real' action sitting in the workbench UI.
+ 
+ @see IWorkbenchWindowActionDelegate#run
+ resents the
+ 'real' action sitting in",public,19,method,2
+75,createFieldEditors(),,"Creates the page's field editors.
+ <p>
+ The default implementation of this framework method
+ does nothing. Subclass must implement this method to
+ create the field editors.
+ </p>
+ <p>
+ Subclasses should call <code>getFieldEditorParent</code>
+ to obtain the parent control for each field editor.
+ This same parent should not be used for more than
+ one editor as the parent may change for each field
+ editor depending on the layout style of the page
+ </p>
+ or as the parent may change for each field",protected,19,method,2
+466,visit(SuperFieldAccess),,"Simple or qualified ""super"" field access expression AST node type. <br> SuperFieldAccess: <br> <dd> <code>   [ ClassName . ] super . Identifier </code>  @see FieldAccess for guidelines on handling other expressions that      resemble qualified names. @see FieldAccess for guidelines on handli",public,19,method,2
+469,"createGraphAttribute(Document, Integer, String, String, String)",,"Utility function in init().
+ 
+ @param doc
+ @param id
+ @param title
+ @param type
+ @param defaultValue
+ @return
+ ction in init().
+ 
+ @param doc
+ @param id
+ @param title
+ @param type
+ @param defaultValu",private,19,method,2
+569,getNewInputObject(),,"Creates and returns a new item for the list.
+ <p>
+ Subclasses must implement this method.
+ </p>
+
+ @return a new item
+ s a new item for the list.
+ <p>
+ Subclasses must implement this method.
+ </p>
+
+ @",protected,19,method,2
+693,serialize(),,"Transform the DOM document to an XML string.
+ 
+ @return
+ @throws TransformerException",private,19,method,2
+704,"createGraphAttvalue(Integer, String, String, String)",,"@param id
+ @param value
+ @param stepfrom
+ @param stepto
+ @return",private,19,method,2
+489,createFieldEditors(),,Creates the field editors.,public,18,method,2
+543,testAddElement(),,"Test method for {@link codeminer.core.data.CodeData#addElement(java.lang.String, java.lang.String, Map)} . d for {@link codeminer.core.data.CodeData#addElement(java.lang.String, java.lang.String,",public,18,method,2
+706,getExtern(IJavaElement),,,public static,18,method,2
+55,getType(IJavaElement),,,public,17,method,2
+70,ExtensionStructure,,,protected,17,class,0
+150,"addElement(String, String, Map<String, Object>)",,"Ajoute un element avec pour identifiant idElementSource et pour type idType. Le dictionaire properties contient des proprietes aditionelles associees a l'element, les proprietes libelle, type, et commentaire.  des proprietes aditionelles associees a l'element, les proprietes libelle, type, et c",public,17,method,2
+393,createData(IConfigurationElement),,"@param configurationElement @return",public static,17,method,2
+554,createDialogArea(Composite),,"Creates and returns the contents of the upper part of this dialog (above
+ the button bar).
+ <p>
+ The <code>Dialog</code> implementation of this framework method creates
+ and returns a new <code>Composite</code> with no margins and spacing.
+ Subclasses should override.
+ </p>
+ 
+ @param parent
+            The parent composite to contain the dialog area
+ @return the dialog area control
+ arent",protected,17,method,2
+597,getListIdExporter(),,,public,17,method,2
+726,StatusContentProvider,,,protected,17,class,0
+736,"selectionChanged(IAction, ISelection)",,"Selection in the workbench has been changed. We can change the state of the 'real' action here if we want, but this can only happen after the delegate has been created.  @see IWorkbenchWindowActionDelegate#selectionChanged ppen after the delegate has been created.  @see IWorkbenchWindowActi",public,17,method,2
+19,testNextElement(),,,public,16,method,2
+64,"ResultAreaDialog(Shell, IStatus, ArrayList<IStatus>)",,,public,16,method,2
+177,run(IProgressMonitor),,"Methode principale du job, cette methode est executer lors de {@link Job#schedule()}.  @see codeminer.api.ui.AbstractScenario#run(org.eclipse.core.runtime.IProgressMonitor) edule()}.  @see code",public,16,method,2
+238,ExternalEditorLauncher,,,public,16,class,0
+257,getIdParserSelected(),,"@return the id of the parser which is been selected in the combobox or         null if there are no parser for this project er which is been selected in the combobox or         null if there are n",public,16,method,2
+297,AbstractScenario,,,public abstract,16,class,0
+299,testIntrospectionIntermediaire(),,,public,16,method,2
+382,getLabel(String),,"Si l'element element existe et si l'element a la propriete ""libelle"", alors la fonction renvoie la valeur de cette propriete, sinon la fonction renvoie null. Si l'element existe mais qu'il n'a pas la propriete ""libelle"", alors la fonction getComment() renvoie null. nt existe mais qu'il n'a pas",public,16,method,2
+453,CodeMinerJobListenner,,,final,16,class,0
+624,codeminer.api.ui,,,,16,package,3
+653,"parseString(String, String)",,"@param stringList @param separator @return",public static,16,method,2
+657,doLoad(),,"Initializes this field editor with the preference value from
+ the preference store.
+ <p>
+ Subclasses must implement this method to properly initialize 
+ the field editor.
+ </p>
+ tore.
+ <p>
+ Subclasse",protected,16,method,2
+130,getLabels(String),,Liste des noms d'export apparaissant dans le registre des extensions.,public static,15,method,2
+163,getComment(String),,"Si l'element element existe et si l'element a la propriete ""commentaire"", alors la fonction renvoie la valeur de cette propriete, sinon la fonction renvoie null. Si l'element existe mais qu'il n'a pas la propriete ""commentaire"", alors la fonction getComment() renvoie null. xiste mais qu'il n'a",public,15,method,2
+208,CodeminerRessourceVisitor(InfoJavaElement),,"@param data @param info            prerequis: info ne doit pas Ãªtre null",public,15,method,2
+224,getType(String),,"Si l'element element existe et si l'element a la propriete ""type"", alors la fonction renvoie la valeur de cette propriete, sinon la fonction renvoie null. Si l'element existe mais qu'il n'a pas la propriete ""type"", alors la fonction getComment() renvoie null. ement existe mais qu'il n'a pas la",public,15,method,2
+317,visit(MethodDeclaration),,"Visits the given type-specific AST node.
+ <p>
+ The default implementation does nothing and return true.
+ Subclasses may reimplement.
+ </p>
+
+ @param node the node to visit
+ @return <code>true</code> if the children of this node should be
+ visited, and <code>false</code> if the children of this node should
+ be skipped
+ is node should be
+ visited, and <code>false</code> if the children of this node",public,15,method,2
+442,getDepensProperties(Pair<String>),,"Retourne les proprietes associees a la dependence entre l'element source et la methode a laquelle elle depend (idElementTarget). S'il n'y a pas de propriete correspondant a cette dependance, alors la methode retourne null. ). S'il n'y a pas de propriete correspondant a cette dependance, alors",public,15,method,2
+480,setExportFormats(List<String>),,@param truePrefs,public static,15,method,2
+599,new MouseAdapter() {...},,,,15,class,0
+622,getLabelExtension(String),,"Return the label associate to the extensionId or returns null if the extension configured does not exist.  @param extensionId @return sionId or returns null if the extension configured does not",public static,15,method,2
+636,removeOneElement(String),,"Suprime uniquement l'ï¿½lï¿½ment spï¿½cifier, mais pas ces fils. une mauvais utilisation de cette fonction peut entrainer des inchoerence dans la base.  @param idElement s utilisation de cette foncti",protected,15,method,2
+678,getIdExtension(IConfigurationElement),,"Return the extension id associate to the configurationElement or returns null if the configurationElement is null.  @param extensionId @return rationElement or returns null if the configuration",public static,15,method,2
+100,Constants,,Constant definitions for plug-in preferences,public,14,class,0
+127,doLoadDefault(),,"Initializes this field editor with the default preference value from
+ the preference store.
+ <p>
+ Subclasses must implement this method to properly initialize 
+ the field editor.
+ </p>
+ tore.
+ <p>
+ S",protected,14,method,2
+167,getIds(String),,Liste des noms d'export apparaissant dans le registre des extensions.,public static,14,method,2
+175,testNextChild(),,,public,14,method,2
+207,getCodeData(),,@return,public static,14,method,2
+218,getPairElement(String),,,public static,14,method,2
+306,equals(Object),,,public,14,method,2
+339,testAddImplement(),,"Test method for {@link codeminer.core.data.CodeData#addImplement(java.lang.String, java.lang.String)} . thod for {@link codeminer.core.data.CodeData#addImplement(java.lang.String, java.lang.Strin",public,14,method,2
+533,EnumState,,,,14,class,0
+546,getInstance(boolean),,"Gere le choix du logger par parametre.
+ 
+ @param debug
+ @return instance de logger",public static synchronized,14,method,2
+691,getData(),,Liste des formats d'export apparaissant dans le registre des extensions.,public static,14,method,2
+712,DEFAULT_INCLUDE_ELEMENT,,,public static final,14,field,1
+23,"addToChildRefences(String, Element)",,"@param gexfPID
+ @param e
+ @return",private,13,method,2
+32,canFinish(),,,public,13,method,2
+47,"addToImplementsRefences(String, Element)",,"@param gexfImplID
+ @param e
+ @return",private,13,method,2
+71,getExportableTypes(),,,public static,13,method,2
+192,"addToHeritsRefences(String, Element)",,"@param gexfHeritID
+ @param e
+ @return",private,13,method,2
+201,getListTypeExported(),,,public,13,method,2
+242,testGetType(),,,public,13,method,2
+358,getListElement(String),,,public static,13,method,2
+445,getLabel(IJavaElement),,,public,13,method,2
+545,mouseDown(MouseEvent),,"Sent when a mouse button is pressed.
+ The default behavior is to do nothing.
+
+ @param e an event containing information about the mouse button press
+ behavior is to do nothing.
+
+ @param e an event co",public,13,method,2
+596,getInstance(),,"Cree le singleton du bon logger selon la preference de debug.
+ 
+ @see codeminer.preferences.MainConstants#P_DEBUG_MODE
+ @return instance de logger
+ nce de debug.
+ 
+ @see codeminer.preferences.MainCon",public static synchronized,13,method,2
+662,"addToDependsRefences(String, Element)",,"@param gexfDependID
+ @param e
+ @return",private,13,method,2
+672,AbstractParser(String),,"Il est deconseille d'utiliser ce constructeur car un constructeur par default a ete defini. <p> <i> AbstractExporter etant utilise principalement dans les extensions, ce constructeur ne pourra etre appele par les mecanismes d'extension, ceux ci n'instanciant que des classes contenant un constructeur par defaut. <p> mes d'extension, ceux ci n'instanciant que des classes contenant un constr",private,13,method,2
+692,testReset(),,,public,13,method,2
+714,testaddParent_trigger_after(),,,public,13,method,2
+123,getConfigurationElement(String),,,public static,12,method,2
+131,"addElement(String, String, Map<String, Object>)",,"@param idElementSource @param idType @param properties             <pre> Ajoute un element avec pour identifiant idElementSource et pour type idType. 	 Le dictionaire properties contient des proprietes aditionelles associees a l'element, 	 les prop",,12,method,2
+142,open(IPath),,"Launches this external editor to edit the file at the given 
+ location in the local file system.
+
+ @param file the local file system path of the file to edit
+  
+ location in the local file system.",public,12,method,2
+239,testGetCommentaire(),,,public,12,method,2
+282,AbstractParser(),,"Le constructeur par defaut definie un nom vide pour le Job. <p> <i> Ce constructeur est necessaire pour permettre la creation automatique des extenstions. <p>  @see Job  ructeur est necessair",public,12,method,2
+323,AbstractExporter(),,"Le constructeur par default definie un nom vide pour le Job. <p> <i> Ce constructeur est necessaire pour permettre la creation automatique des extensions. <p>  @see Job  tructeur est necessai",public,12,method,2
+330,ListContentProvider,,,static,12,class,0
+420,done(IJobChangeEvent),,"Notification that a job has completed execution, either due to cancelation, successful
+ completion, or failure.  The event status object indicates how the job finished,
+ and the reason for failure, if applicable.
+ 
+ @param event the event details
+ ow the job finished,
+ and the reason for failure, i",public,12,method,2
+433,"InfoJavaElement(Map<String, String>)",,"@param ruleCreate            La liste ruleCreate defini les types qui seront crees. Elle            definit aussi une fonction permettant d'obtenir le type d'un            element. Cette liste de parametres est importante pour            retrouver le ",public,12,method,2
+461,start(BundleContext),,"The <code>AbstractUIPlugin</code> implementation of this <code>Plugin</code>
+ method refreshes the plug-in actions.  Subclasses may extend this method,
+ but must send super <b>first</b>.
+ {@inheritDoc}
+ 
+ @since 3.0
+ Subclasses may extend this method,
+ but must send super <b>first</b>.
+ {@inheritDo",public,12,method,2
+487,"addInterface(String, IJavaElement)",,,protected,12,method,2
+492,Constants,,Constant definitions for plug-in preferences,public,12,class,0
+532,getNameIdHashMap(String),,,public static,12,method,2
+578,initializeDefaultPreferences(),,"This method is called by the preference initializer to initialize default
+ preference values. Clients should get the correct node for their 
+ bundle and then set the default values on it. For example:
+ <pre>
+			public void initializeDefaultPreferences() {
+				Preferences node = new DefaultScope().getNode(""my.bundle.id"");
+				node.put(key, value);
+			}
+ </pre>
+ <p>
+ <em>Note: Clients should only set default preference values for their
+ own bundle.</em>
+ </p>
+ <p>
+ <em>Note:</em> Clients should not call this method. It will be called
+ automatically by the preference initializer when the appropriate default
+ preference node is accessed.
+ </p>
+ lly by the preference initializer when the appropr",public,12,method,2
+579,CodeData(int),,,public,12,method,2
+728,getProperties(String),,"Si l'element element existe, alors la fonction renvoie la liste des proprietes de l'element, sinon la fonction renvoie null. , alors la fonction renvoie la liste des proprietes de l'element, sinon",public,12,method,2
+732,visit(TypeLiteral),,"Visits the given type-specific AST node.
+ <p>
+ The default implementation does nothing and return true.
+ Subclasses may reimplement.
+ </p>
+
+ @param node the node to visit
+ @return <code>true</code> if the children of this node should be
+ visited, and <code>false</code> if the children of this node should
+ be skipped
+ is node should be
+ visited, and <code>false</code> if the children of this node",public,12,method,2
+6,"addHerit(String, IJavaElement)",,,protected,11,method,2
+80,"addComboParser(Composite, int)",,,public,11,method,2
+82,testGetCommentaireAbsent(),,,public,11,method,2
+115,"addMethodDependency(String, IJavaElement)",,,protected,11,method,2
+205,"addParent(String, String)",,"Associates the specified parent with the specified idChild Ajoute le parent de idElementFils dans le dictionaire des parent. rent with the specified idChild Ajoute le parent de idElementFils dans",public,11,method,2
+217,"getColumnText(Object, int)",,"Returns the label text for the given column of the given element.
+
+ @param element the object representing the entire row, or
+   <code>null</code> indicating that no input object is set
+   in the viewer
+ @param columnIndex the zero-based index of the column in which the label appears
+ @return String or or <code>null</code> if there is no text for the 
+  given object at columnIndex
+  @return Strin",public,11,method,2
+270,createControl(Composite),,"Creates the top level control for this dialog
+ page under the given parent composite.
+ <p>
+ Implementors are responsible for ensuring that
+ the created control can be accessed via <code>getControl</code>
+ </p>
+
+ @param parent the parent composite
+ ted control can be accessed via <code>getControl</c",public,11,method,2
+283,createFieldEditors(),,"Creates the page's field editors.
+ <p>
+ The default implementation of this framework method
+ does nothing. Subclass must implement this method to
+ create the field editors.
+ </p>
+ <p>
+ Subclasses should call <code>getFieldEditorParent</code>
+ to obtain the parent control for each field editor.
+ This same parent should not be used for more than
+ one editor as the parent may change for each field
+ editor depending on the layout style of the page
+ </p>
+ or as the parent may change for each field",protected,11,method,2
+321,test1(),,,public,11,method,2
+328,run(IProgressMonitor),,"Methode principale du job, cette mÃ¯Â¿Â½thode est executer lors de {@link Job#schedule()}. Par dÃ©fault la fonction run apelle directement finalize export  @see codeminerui.api.AbstractScenario#run(org.eclipse.core.runtime.IProgressMonitor)  e export  @see codeminerui.api.AbstractScenario#run(o",protected,11,method,2
+436,getChild(IJavaElement),,"La fonction getChild n'as pas Ã©tÃ© implementÃ© car aucun algorithme n'a nÃ©cessitÃ© cette fonctionalitÃ©  @see codeminer.api.IInfoElement#getChild(java.lang.Object) e n'a nÃ©cessitÃ© cette fonctionalit",public,11,method,2
+506,isPageComplete(),,"The <code>WizardPage</code> implementation of this <code>IWizard</code> method 
+ returns the value of an internal state variable set by
+ <code>setPageComplete</code>. Subclasses may extend.
+ e value",public,11,method,2
+534,"addParent_trigger_after(String, String)",,,protected,11,method,2
+601,clear(),,Cette fonction suprime tous les ï¿½lï¿½ments de la base.,public,11,method,2
+711,"addFieldDependency(String, IJavaElement)",,,protected,11,method,2
+45,fillContent(),,,protected,10,method,2
+53,createList(String[]),,"Combines the given list of items into a single string.
+ This method is the converse of <code>parseString</code>. 
+ <p>
+ Subclasses must implement this method.
+ </p>
+
+ @param items the list of items
+ @return the combined string
+ @see #parseString
+ his method.
+ </p>
+
+ @param items the list of items",protected,10,method,2
+98,getStartArgumentName(String),,,public static,10,method,2
+124,IElementVisitor<T>,,,public interface,10,class,0
+265,"setDateTo(Element, String)",,"@param e
+ @param revision
+ @return",private,10,method,2
+327,getDepens(IJavaElement),,,public,10,method,2
+371,testEqualsObject(),,"Test method for {@link codeminer.core.data.Pair#equals(java.lang.Object)} .",public,10,method,2
+414,log(IStatus),,"Returns the shared log instance  @return  @return the shared log instance",public static,10,method,2
+457,setSource(IResource),,,public,10,method,2
+497,MainConstants,,Constant definitions for plug-in preferences,public,10,class,0
+508,addPages(),,"The <code>Wizard</code> implementation of this <code>IWizard</code>
+ method does nothing. Subclasses should extend if extra pages need to be
+ added before the wizard opens. New pages should be added by calling
+ <code>addPage</code>.
+  to be
+ added before the wizard opens. New pages should be added",public,10,method,2
+613,getImageDescriptor(String),,"Returns an image descriptor for the image file at the given plug-in relative path.  @param path            the path @return the image descriptor he given plug-in relative path.  @param path",public static,10,method,2
+643,stop(BundleContext),,"The <code>AbstractUIPlugin</code> implementation of this <code>Plugin</code>
+ method saves this plug-in's preference and dialog stores and shuts down 
+ its image registry (if they are in use). Subclasses may extend this
+ method, but must send super <b>last</b>. A try-finally statement should
+ be used where necessary to ensure that <code>super.shutdown()</code> is
+ always done.
+ {@inheritDoc}
+ 
+ @since 3.0
+ cessary to ensure that <code>super.shutdown()</code> is
+ always done.
+ {@inheritDoc}
+ 
+ @",public,10,method,2
+699,"setDateFrom(Element, String)",,"@param e
+ @param revision
+ @return",private,10,method,2
+741,getAvailableTypes(),,"Return the list of the available types which can be analyzed with this parser.  @return return a list of label of the types able types which can be analyzed with this parser.  @return return a",public,10,method,2
+134,postErrorMessage(String),,,protected,9,method,2
+228,ICodeMinerModule,,"Interface de module (fragment de plugin).  @author Sebastien Heymann et Jeremy Palmier",public interface,9,class,0
+236,"setWriterParameter(String, String)",,"{@inheritDoc}  @see codeminer.api.IExporter#setWriterParameter(java.lang.String,      java.lang.String) tDoc}  @see codeminer.api.IExporter#setWriterParameter(java.lang.String,      java.lang.",public,9,method,2
+415,finalizeExport(),,"Finish some work and write the file.  @return",public,9,method,2
+426,getChildren(Object),,"Returns the child elements of the given parent element.
+ <p>
+ The difference between this method and <code>IStructuredContentProvider.getElements</code> 
+ is that <code>getElements</code> is called to obtain the 
+ tree viewer's root elements, whereas <code>getChildren</code> is used
+ to obtain the children of a given parent element in the tree (including a root).
+ </p>
+ The result is not modified by the viewer.
+
+ @param parentElement the parent element
+ @return an array of child elements
+ ified",public,9,method,2
+444,parseString(String),,"Splits the given string into a list of strings.
+ This method is the converse of <code>createList</code>. 
+ <p>
+ Subclasses must implement this method.
+ </p>
+
+ @param stringList the string
+ @return an array of <code>String</code>
+ @see #createList
+ d.
+ </p>
+
+ @param stringList the string
+ @return an",protected,9,method,2
+490,isValid(IProject),,"Return true if the project can be analyze or false if it can't be.  @param project @return",public,9,method,2
+513,getElements(Object),,"Returns the elements to display in the viewer 
+ when its input is set to the given element. 
+ These elements can be presented as rows in a table, items in a list, etc.
+ The result is not modified by the viewer.
+ <p>
+ <b>NOTE:</b> For instances where the viewer is displaying a tree
+ containing a single 'root' element it is still necessary that the
+ 'input' does not return <i>itself</i> from this method. This leads
+ to recursion issues (see bug 9262).
+ </p>
+ @param inputElement the input element
+ @return the array of elements to display in the viewer
+ /p>
+ @param inputElement the input element",public,9,method,2
+536,getChild(String),,"Retourne les fils de l'Ã©lÃ©ment parent pour la relation contenant/contenue  @param elementParent @return  les fils de l'Ã©lÃ©ment parent pour la relation contenant/contenue  @param elementParent",public,9,method,2
+625,findMostSevere(),,,private,9,method,2
+663,dispatchEvent(CodeDataChangesEvent),,"Envoie un evenement aï¿½ tous les listener inscrit via la fonction {@link IWriteElement#addEventListener(CodeDataChangesListener)}  @param evt rit via la fonction {@link IWriteElement#addEventList",public,9,method,2
+1,createList(String[]),,"Combines the given list of items into a single string.
+ This method is the converse of <code>parseString</code>. 
+ <p>
+ Subclasses must implement this method.
+ </p>
+
+ @param items the list of items
+ @return the combined string
+ @see #parseString
+ his method.
+ </p>
+
+ @param items the list of items",protected,8,method,2
+18,init(IWorkbenchWindow),,"We will cache window object in order to be able to provide parent shell
+ for the message dialog.
+ 
+ @see IWorkbenchWindowActionDelegate#init
+  able to provide parent shell
+ for the message dialog.",public,8,method,2
+29,"addImplement(String, String)",,"Ajoute un hï¿½ritage ï¿½ la base. <br> Il n'y a pas de verification sur idElementSource ni sur idElementHeriter. idElementSource ou idElementHeriter peut ne pas faire partie de la base  @param idElementSource @param idElementTarget ementHeriter peut ne pas faire partie de la base  @param idElem",,8,method,2
+37,testAddHerit(),,,public,8,method,2
+41,testHasMoreElements(),,,public,8,method,2
+77,getKey(IJavaElement),,Retourne une cle unique d'identification pour un IJavaElements.,public,8,method,2
+103,"addHerit(String, String)",,"Ajoute un hï¿½ritage ï¿½ la base. <br> Il n'y a pas de verification sur idElementSource ni sur idElementHeriter. idElementSource ou idElementHeriter peut ne pas faire partie de la base  @param idElementSource @param idElementHeriter mentHeriter peut ne pas faire partie de la base  @param idElem",,8,method,2
+202,testAddDepens(),,,public,8,method,2
+225,getListTypeParser(String),,,public static,8,method,2
+310,"selectionChanged(IAction, ISelection)",,"Selection in the workbench has been changed. We can change the state of
+ the 'real' action here if we want, but this can only happen after the
+ delegate has been created.
+ 
+ @see IWorkbenchWindowActionDelegate#selectionChanged
+ ppen after the
+ delegate has been created.
+ 
+ @see IWorkbenchWindowActi",public,8,method,2
+325,removeElement(String),,"Suprime un ï¿½lï¿½ment de la base, si l'ï¿½lï¿½ment n'apparitent pas ï¿½ la base, ou n'a pas pus ï¿½tre supprimer la fonction retourne false. Si l'ï¿½lï¿½ment ï¿½ ï¿½tï¿½ supprimer la fonction retourne true.  @param idElement @return ourne false. Si l'ï¿½lï¿½ment ï¿½ ï¿½tï¿½ supprimer la fonction retourne true.  @param i",,8,method,2
+412,testHashCode(),,Test method for {@link codeminer.core.data.Pair#hashCode()}.,public,8,method,2
+425,getStringParameter(),,"Retourne les parametres globaux du plugin. Ils seront utilises dans toutes les etapes de l'analyse.  @see MainConstants#P_GLOBAL_ARGUMENTS Ils seront utilises dans toutes les etapes de l'analyse",public static,8,method,2
+522,getIcon(),,,public,8,method,2
+540,setWriterData(ICodeData),,"Affecte les donnees a exporter.  @param data @throws Les             types d'elements a exporter passes en preferences ne sont pas             presents dans les donnees parsees. ments a exporte",,8,method,2
+610,postWarningMessage(String),,,protected,8,method,2
+635,getText(Object),,"The <code>LabelProvider</code> implementation of this
+ <code>ILabelProvider</code> method returns the element's
+ <code>toString</code> string. Subclasses may override.
+ ovider</code> method returns t",public,8,method,2
+746,setUp(),,@throws java.lang.Exception,public,8,method,2
+7,checkPackagesDependancies(),,@return packages with deprecated dependancies,private,7,method,2
+8,createContents(Composite),,"The <code>Dialog</code> implementation of this <code>Window</code>
+ method creates and lays out the top level composite for the dialog, and
+ determines the appropriate horizontal and vertical dialog units based on
+ the font size. It then calls the <code>createDialogArea</code> and
+ <code>createButtonBar</code> methods to create the dialog area and
+ button bar, respectively. Overriding <code>createDialogArea</code> and
+ <code>createButtonBar</code> are recommended rather than overriding
+ this method.
+ Area</code> and
+ <code>createButtonBar</code> are recommended rather than overriding
+ this me",protected,7,method,2
+34,getAllTypes(),,,public static,7,method,2
+44,dispose(),,"We can use this method to dispose of any system resources we previously
+ allocated.
+ 
+ @see IWorkbenchWindowActionDelegate#dispose
+ e of any system resources we previously
+ allocated.
+ 
+ @see IWorkbe",public,7,method,2
+147,getExportDirectory(),,"Retourne le repertoire d'exportation.  @see MainConstants#P_EXPORTDIRECTORY",public static,7,method,2
+204,getParent(T),,"Retourne l'Ã©lÃ©ment parent contenant l'Ã©lÃ©ment fils sur la relation contenant/contenue.  @param elementFils @return arent contenant l'Ã©lÃ©ment fils sur la relation contenant/contenue.  @param e",public,7,method,2
+287,getDepens(String),,,public,7,method,2
+294,getCodeData(),,"Si l'Etape 1 a ete annulee, alors le resultat correspond au resultat temporaire a cet instant, le resultat correspond alors a un modele correct mais incomplet. ltat temporaire a cet instant, l",public,7,method,2
+304,postInformationMessage(String),,,protected,7,method,2
+356,testToString(),,Test method for {@link codeminer.core.data.Pair#toString()}.,public,7,method,2
+375,hasChildren(Object),,"Returns whether the given element has children.
+ <p>
+ Intended as an optimization for when the viewer does not
+ need the actual children.  Clients may be able to implement
+ this more efficiently than <code>getChildren</code>.
+ </p>
+
+ @param element the element
+ @return <code>true</code> if the given element has children,
+  and <code>false</code> if it has no children
+ code>true</code> if the give",public,7,method,2
+413,addExportDirectory(),,"Ajout un champ de texte permettant de dÃ©finir le repertoire dans le
+ projet ou seront exporter les fichiers
+ champ de texte permettant de dÃ©finir le repertoire dans le
+ projet ou seront exporter les",protected,7,method,2
+430,getDefault(),,"Returns the shared instance.  @return the shared instance",public static,7,method,2
+474,checkStateChange(boolean),,@param finish,public,7,method,2
+475,getExportFormats(),,@return,public static,7,method,2
+523,testRunIProgressMonitor(),,"Test method for {@link deprecated.Etape1#run(org.eclipse.core.runtime.IProgressMonitor)}.",public,7,method,2
+531,setWriterData(ICodeData),,"{@inheritDoc}  @see codeminer.api.IExporter#setWriterData(codeminer.api.ICodeData)",public,7,method,2
+537,init(IWorkbench),,"Initializes this preference page for the given workbench.
+ <p>
+ This method is called automatically as the preference page is being created
+ and initialized. Clients must not call this method.
+ </p>
+
+ @param workbench the workbench
+ reated
+ and initialized. Clients must not call this method.
+ </p>",public,7,method,2
+583,selectionChanged(SelectionChangedEvent),,"Notifies that the selection has changed.
+
+ @param event event object describing the change",public,7,method,2
+593,getParent(Object),,"Returns the parent for the given element, or <code>null</code> 
+ indicating that the parent can't be computed. 
+ In this case the tree-structured viewer can't expand
+ a given node correctly if requested.
+
+ @param element the element
+ @return the parent element, or <code>null</code> if it
+   has none or if the parent cannot be computed
+ urn the parent element, or <code>null</code> if it
+   has non",public,7,method,2
+627,getParent(String),,"Retourne l'Ã©lÃ©ment parent contenant l'Ã©lÃ©ment fils sur la relation contenant/contenue.  @param elementFils @return arent contenant l'Ã©lÃ©ment fils sur la relation contenant/contenue.  @param e",public,7,method,2
+631,setRootElement(IResource),,"Conversion d'un Ã©lÃ©ment root IRessource en IJavaElement  @param resource",public,7,method,2
+665,nextElement(),,,public,7,method,2
+670,"throwing(String, String, Throwable)",,,public,7,method,2
+689,getProject(),,"Acesseur pour le projet analyse  @see codeminer.api.ui.AbstractScenario#setProject(IProject)",public,7,method,2
+742,testGetChild(),,,public,7,method,2
+65,contain(String),,"@return retourne vrai si idElement est dans la table des elements, faux         sinon",public,6,method,2
+74,"logrb(Level, String, String, String, String, Throwable)",,,public,6,method,2
+76,dispatchEvent(CodeDataChangesEvent),,"Envoie un evenement aï¿½ tous les listener inscrit via la fonction {@link IWriteElement#addEventListener(CodeDataChangesListener)}  @param evt rit via la fonction {@link IWriteElement#addEventList",,6,method,2
+85,init(),,"Must be called before finalizeExport().  @return",public,6,method,2
+133,rebuildPackagesDependancies(),,,private,6,method,2
+170,"logrb(Level, String, String, String, String, Object[])",,,public,6,method,2
+190,"throwing(String, String, Throwable)",,,public,6,method,2
+232,performFinish(),,"Subclasses must implement this <code>IWizard</code> method to perform
+ any special finish processing for their wizard.
+ ement this <code>IWizard</code> method to perform
+ any special finish processin",public,6,method,2
+240,"ExtendedMethodDependanceDetector(ICodeData, IInfoElement<IJavaElement>, boolean)",,,public,6,method,2
+246,"logrb(Level, String, String, String, String)",,,public,6,method,2
+255,isExportFormat(String),,"Indique si la chaine passee en parametre correspond a un format existant.  @param format @return Format existe haine passee en parametre correspond a un format existant.  @param format @return",,6,method,2
+263,run(IProgressMonitor),,"Methode principale du job, cette mÃ¯Â¿Â½thode est executer lors de {@link Job#schedule()}. Par dÃ©fault la fonction run apelle directement finalize export  @see codeminerui.api.AbstractScenario#run(org.eclipse.core.runtime.IProgressMonitor)  e export  @see codeminerui.api.AbstractScenario#run(o",protected,6,method,2
+272,getHerit(String),,,public,6,method,2
+273,getData(),,@return,public static,6,method,2
+275,"logp(Level, String, String, String)",,,public,6,method,2
+329,setRootElement(T),,,public,6,method,2
+335,"add(ICodeData, Collection<String>)",,"Ajoute une liste d'element listElement, provenant du conteneur ICodeData  @param data @param listElement e liste d'element listElement, provenant du conteneur ICodeData  @param data @param lis",public,6,method,2
+338,"setWriterParameter(String, String)",,"Affecte les parametres d'ecriture du fichier d'export.  @param outputPath @param outputNameBase Affecte les parametres d'ecriture du fichier d'export.  @param outputPath @param outputNameBase",,6,method,2
+344,new Runnable() {...},,,,6,class,0
+364,getImplements(String),,,public,6,method,2
+367,getChild(T),,"Retourne les fils de l'Ã©lÃ©ment parent pour la relation contenant/contenue  @param elementParent @return  les fils de l'Ã©lÃ©ment parent pour la relation contenant/contenue  @param elementParent",public,6,method,2
+388,new MouseAdapter() {...},,,,6,class,0
+431,testAddParent(),,,public,6,method,2
+454,new Runnable() {...},,,,6,class,0
+458,setDynamicMode(boolean),,"Affecte le mode de l'exporteur, par defaut a faux.  @param isDynamic",public,6,method,2
+460,"maxSeverityStatus(IStatus, IStatus)",,,private,6,method,2
+463,hashCode(),,Le hashcode d'un objet Pair est la somme des deux hashCode,public,6,method,2
+477,"entering(String, String, Object[])",,,public,6,method,2
+485,setExportDirectory(String),,"Sets the export directory @param dir",public static,6,method,2
+514,tearDown(),,@throws java.lang.Exception,public,6,method,2
+581,"logrb(Level, String, String, String, String, Object)",,,public,6,method,2
+587,doStore(),,"Stores the preference value from this field editor into
+ the preference store.
+ <p>
+ Subclasses must implement this method to save the entered value
+ into the preference store.
+ </p>
+  Subclasses mus",protected,6,method,2
+604,new Runnable() {...},,,,6,class,0
+608,"logp(Level, String, String, String, Throwable)",,,public,6,method,2
+609,"logp(Level, String, String, String, Object)",,,public,6,method,2
+629,getAvailableTypes(),,"Return the list of the available types which can be analyzed with this parser.  @return return a list of label of the types able types which can be analyzed with this parser.  @return return a",public,6,method,2
+642,isValid(IProject),,"Return true if the project can be analyze or false if it can't be.  @param project @return",public,6,method,2
+702,"addParent(String, String)",,"Ajoute le parent de idElementFils dans le dictionaire des parent.  @param idElementFils @param idElementParent t de idElementFils dans le dictionaire des parent.  @param idElementFils @param i",,6,method,2
+708,"logp(Level, String, String, String, Object[])",,,public,6,method,2
+733,getElements(Object),,"Returns the elements to display in the viewer 
+ when its input is set to the given element. 
+ These elements can be presented as rows in a table, items in a list, etc.
+ The result is not modified by the viewer.
+ <p>
+ <b>NOTE:</b> For instances where the viewer is displaying a tree
+ containing a single 'root' element it is still necessary that the
+ 'input' does not return <i>itself</i> from this method. This leads
+ to recursion issues (see bug 9262).
+ </p>
+ @param inputElement the input element
+ @return the array of elements to display in the viewer
+ /p>
+ @param inputElement the input element",public,6,method,2
+56,P_EXLUDED_JAR_LIBRARY,,,public static final,5,field,1
+94,new Runnable() {...},,,,5,class,0
+132,getListControl(Composite),,"Returns this field editor's list control.
+
+ @param parent the parent control
+ @return the list control
+ rns this field editor's list control.
+
+ @param parent the parent control
+ @return the list cont",public,5,method,2
+152,setDynamicMode(boolean),,"Affecte le mode de l'exporteur, par defaut a faux.  @param isDynamic",,5,method,2
+154,endVisit(MethodDeclaration),,"End of visit the given type-specific AST node.
+ <p>
+ The default implementation does nothing. Subclasses may reimplement.
+ </p>
+
+ @param node the node to visit
+ ult implementation does nothing. Subcl",public,5,method,2
+184,GEXFExporter(),,,public,5,method,2
+260,isExcludedInternalRelation,,"Ce booleen dï¿½finie le filtrage des relation interne ï¿½ la classe. Si isExcludedInternalRelation == true alors les relations de dï¿½pendances entre les ï¿½lï¿½ments dï¿½une mï¿½me classe ne seront pas analysï¿½ rue alors les relations de dï¿½pendances entre les ï¿½lï¿½ments dï¿½une mï¿½me classe ne seront pas analysï¿½",protected,5,field,1
+274,CodeDataChangesEvent,,,public,5,class,0
+279,test2(),,,public,5,method,2
+322,"entering(String, String, Object)",,,public,5,method,2
+334,MainPage(),,,public,5,method,2
+352,severe(String),,,public,5,method,2
+421,"exiting(String, String, Object)",,,public,5,method,2
+448,parseString(String),,"Splits the given string into a list of strings.
+ This method is the converse of <code>createList</code>. 
+ <p>
+ Subclasses must implement this method.
+ </p>
+
+ @param stringList the string
+ @return an array of <code>String</code>
+ @see #createList
+ d.
+ </p>
+
+ @param stringList the string
+ @return an",protected,5,method,2
+459,onChange(CodeDataChangesEvent),,Do not use.,public,5,method,2
+464,getListType(),,Retourne la liste des type disponibles.,public,5,method,2
+498,finalizeExport(),,"Finish some work and write the file.  @return",public abstract,5,method,2
+630,getProperties(T),,"@param element @return une hashMap corespondant Ã  l'Ã©lÃ©ment. (si l'Ã©lÃ©ment n'existe pas         une hashmpap vide est nÃ©anmoins retourner""); dant Ã  l'Ã©lÃ©ment. (si l'Ã©lÃ©ment n'existe pas         u",public,5,method,2
+645,_dicoElementDependence,,"<li>key = Pair d'element (une dependance entre deux elements) <li>value = liste des proprietes de la pair d'element, c'est a dire les elements qu'il utilise.  <li>value = liste des proprietes de",protected,5,field,1
+667,init(),,"Must be called before finalizeExport().  @return",public,5,method,2
+738,init(),,"Must be called before finalizeExport().  @return",public abstract,5,method,2
+22,"entering(String, String)",,,public,4,method,2
+24,patternPairValue,,,protected static,4,field,1
+25,SerializedExporter(),,,public,4,method,2
+27,Activator(),,The constructor,public,4,method,2
+86,getKey(String),,,public,4,method,2
+89,setCodeData(ICodeData),,,public,4,method,2
+92,iterator(),,,public,4,method,2
+97,"log(Level, String)",,,public,4,method,2
+109,Page(),,,public,4,method,2
+112,"log(Level, String, Object)",,,public,4,method,2
+119,"inputChanged(Viewer, Object, Object)",,"Notifies this content provider that the given viewer's input
+ has been switched to a different element.
+ <p>
+ A typical use for this method is registering the content provider as a listener
+ to changes on the new input (using model-specific means), and deregistering the viewer 
+ from the old input. In response to these change notifications, the content provider
+ should update the viewer (see the add, remove, update and refresh methods on the viewers).
+ </p>
+ <p>
+ The viewer should not be updated during this call, as it might be in the process
+ of being disposed.
+ </p>
+
+ @param viewer the viewer
+ @param oldInput the old input element, or <code>null</code> if the viewer
+   did not previously have an input
+ @param newInput the new input element, or <code>null</code> if the viewer
+   does not have an input
+ param newInput the new input element, or <code>null</code> if the viewer
+   does not",public,4,method,2
+143,dispose(),,"Disposes of this content provider.  
+ This is called by the viewer when it is disposed.
+ <p>
+ The viewer should not be updated during this call, as it is in the process
+ of being disposed.
+ </p>
+ e v",public,4,method,2
+172,warning(String),,,public,4,method,2
+187,getInstance(),,,public static synchronized,4,method,2
+210,"log(Level, String, Object[])",,,public,4,method,2
+258,getInstance(),,,public static synchronized,4,method,2
+262,"EnumState(Object, int, int)",,,public,4,method,2
+271,GDFExporter(),,,public,4,method,2
+280,run(),,,public,4,method,2
+307,mouseDown(MouseEvent),,,public,4,method,2
+332,run(),,,public,4,method,2
+336,run(),,,public,4,method,2
+374,severe(String),,,public,4,method,2
+376,createParser(),,,public,4,method,2
+408,run(IProgressMonitor),,"Methode principale du job, cette mÃ¯Â¿Â½thode est executer lors de {@link Job#schedule()}. Par dÃ©fault la fonction run apelle directement finalize export  @see codeminerui.api.AbstractScenario#run(org.eclipse.core.runtime.IProgressMonitor)  e export  @see codeminerui.api.AbstractScenario#run(o",protected,4,method,2
+410,getDepensProperties(Pair<IJavaElement>),,,public,4,method,2
+432,"log(Level, String, Throwable)",,,public,4,method,2
+437,getImage(Object),,"Returns the image for the label of the given element.  The image
+ is owned by the label provider and must not be disposed directly.
+ Instead, dispose the label provider when no longer needed.
+
+ @param element the element for which to provide the label image
+ @return the image used to label the element, or <code>null</code>
+   if there is no image for the given object
+ image used to label the elem",public,4,method,2
+446,_dicoDepends,,"<li>key = nom de l'element <li>value = liste des dependances de l'elements, c'est a dire les elements qu'il utilise. element <li>value = liste des dependances de l'elements, c'est a dire les eleme",protected,4,field,1
+449,"exiting(String, String)",,,public,4,method,2
+451,info(String),,,public,4,method,2
+491,ListennerClass,,,protected,4,class,0
+504,canFinish(),,"Returns whether this wizard could be finished without further user
+ interaction.
+ <p>
+ The result of this method is typically used by the wizard container to enable
+ or disable the Finish button.
+ </p>
+
+ @return <code>true</code> if the wizard could be finished,
+   and <code>false</code> otherwise
+ >
+
+ @return <code>true</code> if the wizard could be finished,
+   and <code>false</code> otherwise",public,4,method,2
+519,getElements(Object),,"Returns the elements to display in the viewer 
+ when its input is set to the given element. 
+ These elements can be presented as rows in a table, items in a list, etc.
+ The result is not modified by the viewer.
+ <p>
+ <b>NOTE:</b> For instances where the viewer is displaying a tree
+ containing a single 'root' element it is still necessary that the
+ 'input' does not return <i>itself</i> from this method. This leads
+ to recursion issues (see bug 9262).
+ </p>
+ @param inputElement the input element
+ @return the array of elements to display in the viewer
+ /p>
+ @param inputElement the input element",public,4,method,2
+526,contain(String),,,public,4,method,2
+535,_dicoElement,,"<li>key = nom de l'element <li>value = liste des proprietes pour chaque element",protected,4,field,1
+561,patternSingleValue,,,protected static,4,field,1
+570,addListener(ILabelProviderListener),,"Adds a listener to this label provider. 
+ Has no effect if an identical listener is already registered.
+ <p>
+ Label provider listeners are informed about state changes 
+ that affect the rendering of the viewer that uses this label provider.
+ </p>
+
+ @param listener a label provider listener
+ ing of",public,4,method,2
+620,reset(),,,public,4,method,2
+623,Page(),,,public,4,method,2
+652,TestActivator(),,The constructor.,public,4,method,2
+52,patternStringMapName,,,protected static,3,field,1
+60,serialVersionUID,,Numero de serialisation,private static final,3,field,1
+67,StdAnalyseWithPreference(),,,public,3,method,2
+90,_dicoHerit,,<li>key = nom de l'element <li>value = liste des elements herites,protected,3,field,1
+114,testSetRootElement(),,,public,3,method,2
+118,"addHerit(String, String)",,"Ajoute un hï¿½ritage ï¿½ la base. <br> Il n'y a pas de verification sur idElementSource ni sur idElementHeriter. idElementSource ou idElementHeriter peut ne pas faire partie de la base  @param idElementSource @param idElementHeriter mentHeriter peut ne pas faire partie de la base  @param idElem",public,3,method,2
+121,setParameter(String[]),,Passe les parametres globaux aux fragments de plugin.,public,3,method,2
+129,"ExtensionListEditorControl(String, String, Composite)",,,protected,3,method,2
+139,_dicoParents,,<li>key = nom de l'element <li>value = nom de l'element parent,protected,3,field,1
+176,testAccept(),,,public,3,method,2
+200,getElements(Object),,"Returns the elements to display in the viewer 
+ when its input is set to the given element. 
+ These elements can be presented as rows in a table, items in a list, etc.
+ The result is not modified by the viewer.
+ <p>
+ <b>NOTE:</b> For instances where the viewer is displaying a tree
+ containing a single 'root' element it is still necessary that the
+ 'input' does not return <i>itself</i> from this method. This leads
+ to recursion issues (see bug 9262).
+ </p>
+ @param inputElement the input element
+ @return the array of elements to display in the viewer
+ /p>
+ @param inputElement the input element",public,3,method,2
+206,getNextPage(IWizardPage),,"Returns the successor of the given page.
+ <p>
+ This method is typically called by a wizard page
+ </p>
+
+ @param page the page
+ @return the next page, or <code>null</code> if none
+ by a wizard page
+ </",public,3,method,2
+233,onChange(CodeDataChangesEvent),,,public,3,method,2
+252,_dicoImplements,,<li>key = nom de l'element <li>value = liste des elements implementes,protected,3,field,1
+343,testAbstractEnumFileContent(),,,public,3,method,2
+353,init(IWorkbench),,"Initializes this preference page for the given workbench.
+ <p>
+ This method is called automatically as the preference page is being created
+ and initialized. Clients must not call this method.
+ </p>
+
+ @param workbench the workbench
+ reated
+ and initialized. Clients must not call this method.
+ </p>",public,3,method,2
+354,getCodeData(),,"Si l'Etape 1 a ete annulee, alors le resultat correspond au resultat temporaire a cet instant, le resultat correspond alors a un modele correct mais incomplet. ltat temporaire a cet instant, l",public,3,method,2
+360,"MyListEditor(String, String, Composite)",,,public,3,method,2
+373,StdAnalyse(),,,public,3,method,2
+386,getText(Object),,"The <code>LabelProvider</code> implementation of this
+ <code>ILabelProvider</code> method returns the element's
+ <code>toString</code> string. Subclasses may override.
+ ovider</code> method returns t",public,3,method,2
+399,getNumberOfControls(),,"Returns the number of basic controls this field editor consists of.
+
+ @return the number of controls
+ turns the number of basic controls this field editor consists of.
+
+ @return the number of control",public,3,method,2
+407,currentProject,,IProject of the Selected project,protected,3,field,1
+418,parserStatus,,,private,3,field,1
+423,currentMonitor,,Cette element permet de montre la progression du travail.,protected,3,field,1
+439,"Pair(T, T)",,,public,3,method,2
+450,setData(ICodeData),,,public,3,method,2
+456,"getColumnImage(Object, int)",,"Returns the label image for the given column of the given element.
+
+ @param element the object representing the entire row, or 
+    <code>null</code> indicating that no input object is set
+    in the viewer
+ @param columnIndex the zero-based index of the column in which
+   the label appears
+ @return Image or <code>null</code> if there is no image for the 
+  given object at columnIndex
+ rs
+ @retur",public,3,method,2
+467,hasMoreElements(),,,public,3,method,2
+472,visit(ThisExpression),,"Visits the given type-specific AST node.
+ <p>
+ The default implementation does nothing and return true.
+ Subclasses may reimplement.
+ </p>
+
+ @param node the node to visit
+ @return <code>true</code> if the children of this node should be
+ visited, and <code>false</code> if the children of this node should
+ be skipped
+ is node should be
+ visited, and <code>false</code> if the children of this node",public,3,method,2
+501,getStartingPage(),,"Returns the first page to be shown in this wizard.
+
+ @return the first wizard page",public,3,method,2
+542,testSetProgressMonitor(),,,public,3,method,2
+555,getText(Object),,"Returns the text for the label of the given element.
+
+ @param element the element for which to provide the label text
+ @return the text string used to label the element, or <code>null</code>
+   if there is no text label for the given object
+  used to label the element, or <code>null</code>
+   if th",public,3,method,2
+558,isStarted(),,,public,3,method,2
+563,testInitContentProvider(),,,public,3,method,2
+567,run(),,,public,3,method,2
+600,"isLabelProperty(Object, String)",,"Returns whether the label would be affected 
+ by a change to the given property of the given element.
+ This can be used to optimize a non-structural viewer update.
+ If the property mentioned in the update does not affect the label,
+ then the viewer need not update the label.
+
+ @param element the element
+ @param property the property
+ @return <code>true</code> if the label would be affected,
+    and <code>false</code> if it would be unaffected
+ e>true</code> if the label would be affected,
+    a",public,3,method,2
+606,createButtonsForButtonBar(Composite),,"Adds buttons to this dialog's button bar.
+ <p>
+ The <code>Dialog</code> implementation of this framework method adds
+ standard ok and cancel buttons using the <code>createButton</code>
+ framework method. These standard buttons will be accessible from
+ <code>getCancelButton</code>, and <code>getOKButton</code>.
+ Subclasses may override.
+ </p>
+ 
+ @param parent
+            the button bar composite",protected,3,method,2
+666,StdPage(),,,public,3,method,2
+673,dispose(),,"Disposes the SWT resources allocated by this
+ dialog page.",public,3,method,2
+679,getImage(Object),,"The <code>LabelProvider</code> implementation of this
+ <code>ILabelProvider</code> method returns <code>null</code>.
+ Subclasses may override.
+ n of this
+ <code>ILabelProvider</code> method returns <",public,3,method,2
+705,getNewInputObject(),,"Creates and returns a new item for the list.
+ <p>
+ Subclasses must implement this method.
+ </p>
+
+ @return a new item
+ s a new item for the list.
+ <p>
+ Subclasses must implement this method.
+ </p>
+
+ @",protected,3,method,2
+11,StdWizardAnalysis(IProject),,,public,2,method,2
+31,LogManager(),,,private,2,method,2
+72,dispose(),,"Disposes of this content provider.  
+ This is called by the viewer when it is disposed.
+ <p>
+ The viewer should not be updated during this call, as it is in the process
+ of being disposed.
+ </p>
+ e v",public,2,method,2
+78,dispose(),,"Disposes of this label provider.  When a label provider is
+ attached to a viewer, the viewer will automatically call
+ this method when the viewer is being closed.  When label providers
+ are used outside of the context of a viewer, it is the client's
+ responsibility to ensure that this method is called when the
+ provider is no longer needed.
+ ent's
+ responsibility to ensure that this method is cal",public,2,method,2
+88,EnumFileContentJava(ITreeContentProvider),,,public,2,method,2
+156,onChange(CodeDataChangesEvent),,,public,2,method,2
+160,dispose(),,"Disposes this action delegate.  The implementor should unhook any references
+ to itself so that garbage collection can occur.
+ te.  The implementor should unhook any references
+ to itself so that gar",public,2,method,2
+164,getCodeDataListenners(),,,public,2,method,2
+166,Initialiser(),,,public,2,method,2
+182,setContentProvider(ITreeContentProvider),,,public,2,method,2
+193,getCodeData(),,,public,2,method,2
+209,DebugLogger(),,,private,2,method,2
+211,isExportFormat(String),,"Indique si la chaine passee en parametre correspond a un format existant.  @param format @return Format existe haine passee en parametre correspond a un format existant.  @param format @return",public,2,method,2
+219,removeEventListener(CodeDataChangesListener),,,public,2,method,2
+234,setParameter(String[]),,Passe les parametres globaux aux fragments de plugin.,public,2,method,2
+250,dispose(),,"Disposes of this content provider.  
+ This is called by the viewer when it is disposed.
+ <p>
+ The viewer should not be updated during this call, as it is in the process
+ of being disposed.
+ </p>
+ e v",public,2,method,2
+278,"inputChanged(Viewer, Object, Object)",,"Notifies this content provider that the given viewer's input
+ has been switched to a different element.
+ <p>
+ A typical use for this method is registering the content provider as a listener
+ to changes on the new input (using model-specific means), and deregistering the viewer 
+ from the old input. In response to these change notifications, the content provider
+ should update the viewer (see the add, remove, update and refresh methods on the viewers).
+ </p>
+ <p>
+ The viewer should not be updated during this call, as it might be in the process
+ of being disposed.
+ </p>
+
+ @param viewer the viewer
+ @param oldInput the old input element, or <code>null</code> if the viewer
+   did not previously have an input
+ @param newInput the new input element, or <code>null</code> if the viewer
+   does not have an input
+ param newInput the new input element, or <code>null</code> if the viewer
+   does not",public,2,method,2
+308,testAddDepensNB(),,,public,2,method,2
+309,AbstractScenario(),,,public,2,method,2
+312,setProject(IProject),,,public,2,method,2
+363,addOrder(),,,protected,2,method,2
+377,run(IAction),,"Performs this action.
+ <p>
+ This method is called by the proxy action when the action has been
+ triggered. Implement this method to do the actual work.
+ </p><p>
+ <b>Note:</b> If the action delegate also implements
+ <code>IActionDelegate2</code>, then this method is not invoked but
+ instead the <code>runWithEvent(IAction, Event)</code> method is called.
+ </p>
+
+ @param action the action proxy that handles the presentation portion of the
+   action
+ led.
+ </p>
+
+ @param action the action proxy that",public,2,method,2
+379,CodeData(),,,public,2,method,2
+384,removeListener(ILabelProviderListener),,"Removes a listener to this label provider.
+ Has no affect if an identical listener is not registered.
+
+ @param listener a label provider listener
+  no affect if an identical listener is not registere",public,2,method,2
+400,getExtensionName(),,,public,2,method,2
+406,init(IWorkbench),,"Initializes this preference page for the given workbench.
+ <p>
+ This method is called automatically as the preference page is being created
+ and initialized. Clients must not call this method.
+ </p>
+
+ @param workbench the workbench
+ reated
+ and initialized. Clients must not call this method.
+ </p>",public,2,method,2
+427,fillOutputContent(),,,protected,2,method,2
+438,setProgressMonitor(IProgressMonitor),,,public,2,method,2
+499,StandardLogger(),,,private,2,method,2
+518,"addImplement(String, String)",,"Ajoute un hï¿½ritage ï¿½ la base. <br> Il n'y a pas de verification sur idElementSource ni sur idElementHeriter. idElementSource ou idElementHeriter peut ne pas faire partie de la base  @param idElementSource @param idElementTarget ementHeriter peut ne pas faire partie de la base  @param idElem",public,2,method,2
+541,addEventListener(CodeDataChangesListener),,,public,2,method,2
+551,isExportFormat(String),,"Indique si la chaine passee en parametre correspond a un format existant.  @param format @return Format existe haine passee en parametre correspond a un format existant.  @param format @return",public,2,method,2
+559,CodeDataChangesListener,,,public interface,2,class,0
+584,widgetSelected(SelectionEvent),,"Sent when selection occurs in the control.
+ The default behavior is to do nothing.
+
+ @param e an event containing information about the selection
+  default behavior is to do nothing.
+
+ @param e an ev",public,2,method,2
+594,init(IWorkbenchWindow),,"Initializes this action delegate with the workbench window it will work in.
+
+ @param window the window that provides the context for this delegate
+ nch window it will work in.
+
+ @param window the win",public,2,method,2
+598,setListType(ArrayList<String>),,,public,2,method,2
+614,setSource(IJavaElement),,,public,2,method,2
+615,fillChooseProject(),,,protected,2,method,2
+621,currentProject,,,private,2,field,1
+633,setDataRepository(ICodeData),,,public,2,method,2
+641,Initialiser(),,,public,2,method,2
+647,toString(),,,public,2,method,2
+668,getElement(),,,public,2,method,2
+675,setParameter(String[]),,Passe les parametres globaux aux fragments de plugin.,public,2,method,2
+677,EnumFileContent(ITreeContentProvider),,,public,2,method,2
+695,"inputChanged(Viewer, Object, Object)",,"Notifies this content provider that the given viewer's input
+ has been switched to a different element.
+ <p>
+ A typical use for this method is registering the content provider as a listener
+ to changes on the new input (using model-specific means), and deregistering the viewer 
+ from the old input. In response to these change notifications, the content provider
+ should update the viewer (see the add, remove, update and refresh methods on the viewers).
+ </p>
+ <p>
+ The viewer should not be updated during this call, as it might be in the process
+ of being disposed.
+ </p>
+
+ @param viewer the viewer
+ @param oldInput the old input element, or <code>null</code> if the viewer
+   did not previously have an input
+ @param newInput the new input element, or <code>null</code> if the viewer
+   does not have an input
+ param newInput the new input element, or <code>null</code> if the viewer
+   does not",public,2,method,2
+696,setExtensionName(String),,,public,2,method,2
+707,seperator,,,private,2,field,1
+721,isExportFormat(String),,"Indique si la chaine passee en parametre correspond a un format existant.  @param format @return Format existe haine passee en parametre correspond a un format existant.  @param format @return",public,2,method,2
+731,EnumState(Object),,,public,2,method,2
+155,run(IProgressMonitor),,"Executes this job.  Returns the result of the execution.
+ <p>
+ The provided monitor can be used to report progress and respond to 
+ cancellation.  If the progress monitor has been canceled, the job
+ should finish its execution at the earliest convenience and return a result
+ status of severity {@link IStatus#CANCEL}.  The singleton
+ cancel status {@link Status#CANCEL_STATUS} can be used for
+ this purpose.  The monitor is only valid for the duration of the invocation
+ of this method.
+ <p>
+ This method must not be called directly by clients.  Clients should call
+ <code>schedule</code>, which will in turn cause this method to be called.
+ <p>
+ Jobs can optionally finish their execution asynchronously (in another thread) by 
+ returning a result status of {@link #ASYNC_FINISH}.  Jobs that finish
+ asynchronously <b>must</b> specify the execution thread by calling
+ <code>setThread</code>, and must indicate when they are finished by calling
+ the method <code>done</code>.
+ 
+ @param monitor the monitor to be used for reporting progress and
+ responding to cancelation. The monitor is never <code>null</code>
+ @return resulting status of the run. The result must not be <code>null</code>
+ @see #ASYNC_FINISH
+ @see #done(IStatus)
+ atus of the run. The result must not be <code>null</code>
+ @see #A",public abstract,1,method,2
+357,_listType,,Liste des types d'element,protected,1,field,1
+394,PLUGIN_ID,,,public static final,1,field,1
+462,dispose(),,"Disposes of this content provider.  
+ This is called by the viewer when it is disposed.
+ <p>
+ The viewer should not be updated during this call, as it is in the process
+ of being disposed.
+ </p>
+ e v",public,1,method,2
+483,setParameter(String[]),,Passe les parametres globaux aux fragments de plugin.,public,1,method,2
+520,STATUS_OK,,,protected static final,1,field,1
+552,setParameter(String[]),,Passe les parametres globaux aux fragments de plugin.,public,1,method,2
+586,plugin,,,private static,1,field,1
+616,"inputChanged(Viewer, Object, Object)",,"Notifies this content provider that the given viewer's input
+ has been switched to a different element.
+ <p>
+ A typical use for this method is registering the content provider as a listener
+ to changes on the new input (using model-specific means), and deregistering the viewer 
+ from the old input. In response to these change notifications, the content provider
+ should update the viewer (see the add, remove, update and refresh methods on the viewers).
+ </p>
+ <p>
+ The viewer should not be updated during this call, as it might be in the process
+ of being disposed.
+ </p>
+
+ @param viewer the viewer
+ @param oldInput the old input element, or <code>null</code> if the viewer
+   did not previously have an input
+ @param newInput the new input element, or <code>null</code> if the viewer
+   does not have an input
+ param newInput the new input element, or <code>null</code> if the viewer
+   does not",public,1,method,2
+619,fileChooser,,,protected,1,field,1
+651,EnumFileContent(),,,public,1,method,2
+718,ATTR_TYPE,,,private final,1,field,1
+0,P_EXPORT_TYPE_JAVA_METHOD,,,public static final,,field,1
+2,parserJob,,,protected,,field,1
+3,stackElement,,,protected,,field,1
+4,DEFAULT_SEPERATOR,,,private static final,,field,1
+9,getImplements(T),,,public,,method,2
+10,childReferences,,,,,field,1
+12,elemIDs,,,private,,field,1
+14,isFinished(),,,public abstract,,method,2
+17,RESSOURCE_ICON_CODEMINER,,,public static final,,field,1
+21,P_EXPORT_TYPE_JAVA_PACKAGE,,,public static final,,field,1
+26,setProject(IProject),,,public abstract,,method,2
+33,_codeData,,,protected,,field,1
+35,setCodeData(ICodeData),,,public,,method,2
+36,log,,,public static,,field,1
+39,edgesReferences,,,,,field,1
+40,element,,,public,,field,1
+42,data_Repository,,,protected,,field,1
+43,removeEventListener(CodeDataChangesListener),,,,,method,2
+50,progress_monitor,,,protected,,field,1
+54,listIdExporter,,,public,,field,1
+58,showEditorsPulldownMenu,,,private,,field,1
+59,outputNameBase,,,protected,,field,1
+61,ATTR_RELATIONTYPE,,,private final,,field,1
+62,P_DEBUG_MODE,,,public static final,,field,1
+68,combo_list_parser,,,protected,,field,1
+91,result,,,protected,,field,1
+93,element,,,protected,,field,1
+95,setSource(IResource),,,public,,method,2
+96,textExtension,,,public final,,field,1
+101,preference,,,protected,,field,1
+102,FILE_TYPE,,,public static final,,field,1
+105,createParser(),,,public,,method,2
+108,source,,,protected,,field,1
+111,P_EXCLUDED_INTERN_CALL,,,public static final,,field,1
+116,contain(String),,,public,,method,2
+120,implementsReferences,,,,,field,1
+122,_currentParser,,,protected,,field,1
+125,P_EXPORTDIRECTORY,,,public static final,,field,1
+137,isStarted(),,,public,,method,2
+138,outputPath,,,protected,,field,1
+148,P_EXPORT_TYPE_JAVA_CLASS,,,public static final,,field,1
+153,DEFAULT_SEPARATOR,,,public static final,,field,1
+159,PLUGIN_SCENARIO_ATTRIBUTE_LABEL,,,public static final,,field,1
+161,checkbox_table_exporter,,,protected,,field,1
+171,numMax,,,public,,field,1
+173,CLASS,,,protected static final,,field,1
+178,elements,,,protected,,field,1
+179,PLUGIN_DATA_EXTENSION_ID,,,public static final,,field,1
+183,left,,,public,,field,1
+185,DEPENDS_PROPERTIES_ORDERS,,,public static final,,field,1
+186,getDepens(T),,,public,,method,2
+194,targetProject,,,protected,,field,1
+195,nodes,,,private,,field,1
+196,title,,,private,,field,1
+198,idNames,,,private,,field,1
+199,list,,,protected,,field,1
+203,enumProject,,,protected,,field,1
+212,ATTR_MODIFIER,,,private final,,field,1
+214,getLabel(T),,,public,,method,2
+215,P_KEEP_INTERMEDIATE_FILE,,,public static final,,field,1
+216,serialExtension,,,public final,,field,1
+230,visitor,,,protected,,field,1
+237,getType(T),,,public,,method,2
+253,exporter_viewer,,,private,,field,1
+259,changedElements,,,public,,field,1
+276,edges,,,private,,field,1
+281,listType,,,protected,,field,1
+284,doc,,,private,,field,1
+288,progress_monitor,,,protected,,field,1
+289,getIdElementSource(),,,public,,method,2
+292,typesExportedByParser,,,protected,,field,1
+300,infoJavaProvider,,,protected,,field,1
+314,isExcludedArchive,,,protected,,field,1
+318,getProject(),,,public abstract,,method,2
+320,P_GLOBAL_ARGUMENTS,,,public static final,,field,1
+324,addEventListener(CodeDataChangesListener),,,,,method,2
+333,chooseDirButton,,,protected,,field,1
+337,PLUGIN_SCENARIO_EXTENSION_ID,,,public static final,,field,1
+341,ELEMENT_PROPERTIES_PROBLEMS,,,public static final,,field,1
+345,P_EXPORT_TYPE_JAVA_VARIABLE,,,public static final,,field,1
+347,PACKAGE_TYPE,,,public static final,,field,1
+350,P_EXPORT_JAVA_TYPE,,,public static final,,field,1
+351,order_number,,,protected,,field,1
+355,id_currentMethod,,,protected,,field,1
+361,nextChildNum,,,public,,field,1
+365,rootElement,,,protected,,field,1
+366,getObject(),,,public,,method,2
+369,edges,,,private,,field,1
+372,PROJECT_TYPE,,,public static final,,field,1
+380,FIELD_TYPE,,,public static final,,field,1
+381,getListType(),,,,,method,2
+385,parserStatus,,,protected,,field,1
+387,listTypeExported,,,public,,field,1
+391,PLUGIN_EXPORT_EXTENSION_ID,,,public static final,,field,1
+395,getKey(T),,,public,,method,2
+397,page_std,,,protected,,field,1
+401,amountOfWorkParser,,,protected final,,field,1
+402,onChange(CodeDataChangesEvent),,,,,method,2
+403,nodes,,,private,,field,1
+405,P_EXPORT_FORMAT,,,public static final,,field,1
+411,ELEMENT_PROPERTIES_LENGTH_CODE,,,public static final,,field,1
+419,getKey(Object),,,public,,method,2
+422,listeners,,,private transient,,field,1
+424,ELEMENT_PROPERTIES_COMMENTAIRE,,,public static final,,field,1
+429,getCodeData(),,,,,method,2
+440,SCENARIO_CONST,,,protected static final,,field,1
+441,ELEMENT_PROPERTIES_LIBELLE,,,public static final,,field,1
+452,data_repository,,,protected,,field,1
+455,ATTR_COMMENT,,,private final,,field,1
+471,DEPENDS_PROPERTIES_COMMENTAIRE,,,public static final,,field,1
+473,visit(T),,,,,method,2
+476,info_JavaProvider,,,protected,,field,1
+478,METHOD_TYPE,,,public static final,,field,1
+482,content,,,protected,,field,1
+484,idParserSelected,,,public,,field,1
+486,typeStatus,,,private,,field,1
+493,ELEMENT_PROPERTIES_MODIFIER,,,public static final,,field,1
+494,outputLabel,,,protected,,field,1
+496,instance,,,private static,,field,1
+503,nodesReferences,,,,,field,1
+505,ruleCreate,,,protected,,field,1
+507,extensionName,,,protected,,field,1
+509,log,,,protected static,,field,1
+511,extension,,,public final,,field,1
+512,edgesCount,,,private,,field,1
+517,isStarted,,,protected,,field,1
+521,data_repository,,,protected,,field,1
+525,instance,,,private static,,field,1
+538,window,,,private,,field,1
+539,list_exporter_status,,,protected,,field,1
+544,ATTR_CODELINES,,,private final,,field,1
+556,lastActiveScenario,,,private,,field,1
+557,listExporter,,,protected,,field,1
+565,getidElementTarget(),,,public,,method,2
+573,log,,,protected static,,field,1
+574,isDynamicMode,,,protected,,field,1
+575,_dicoChild,,,protected,,field,1
+576,heritsReferences,,,,,field,1
+585,projectLabel,,,protected,,field,1
+588,currentParent,,,protected,,field,1
+589,DEPENDS_PROPERTIES_NB,,,public static final,,field,1
+590,data,,,public,,field,1
+592,getIcon(),,,public abstract,,method,2
+603,checkbox_table_type,,,protected,,field,1
+605,getDepensProperties(Pair<T>),,,public,,method,2
+607,contentProvider,,,protected,,field,1
+612,data,,,protected,,field,1
+618,CLASS_TYPE,,,public static final,,field,1
+632,data,,,,,field,1
+634,format_attribute,,,protected static final,,field,1
+637,instance,,,private static,,field,1
+638,DEFAULT_SEPERATOR,,,public static final,,field,1
+639,store,,,protected,,field,1
+640,_ruleCreate,,,protected,,field,1
+646,right,,,public,,field,1
+648,dependsReferences,,,,,field,1
+654,setData(ICodeData),,,,,method,2
+655,ELEMENT_PROPERTIES_TYPE,,,public static final,,field,1
+656,extension,,,public final,,field,1
+659,ELEMENT_PROPERTIES_TYPE_OF_FIELD,,,public static final,,field,1
+660,info_JavaProvider,,,protected,,field,1
+671,elemCount,,,private,,field,1
+682,parser_viewer,,,private,,field,1
+694,serialVersionUID,,,private static final,,field,1
+700,RESSOURCE_ICON_PROJECT,,,public static final,,field,1
+701,revno,,,public,,field,1
+716,dependanceDetector,,,protected,,field,1
+717,jobListener,,,public,,field,1
+719,parameter,,,protected,,field,1
+722,P_EXLUDED_PROBLEMS_MARKERS,,,public static final,,field,1
+725,getHerit(T),,,public,,method,2
+727,run(IProgressMonitor),,"Executes this job.  Returns the result of the execution.
+ <p>
+ The provided monitor can be used to report progress and respond to 
+ cancellation.  If the progress monitor has been canceled, the job
+ should finish its execution at the earliest convenience and return a result
+ status of severity {@link IStatus#CANCEL}.  The singleton
+ cancel status {@link Status#CANCEL_STATUS} can be used for
+ this purpose.  The monitor is only valid for the duration of the invocation
+ of this method.
+ <p>
+ This method must not be called directly by clients.  Clients should call
+ <code>schedule</code>, which will in turn cause this method to be called.
+ <p>
+ Jobs can optionally finish their execution asynchronously (in another thread) by 
+ returning a result status of {@link #ASYNC_FINISH}.  Jobs that finish
+ asynchronously <b>must</b> specify the execution thread by calling
+ <code>setThread</code>, and must indicate when they are finished by calling
+ the method <code>done</code>.
+ 
+ @param monitor the monitor to be used for reporting progress and
+ responding to cancelation. The monitor is never <code>null</code>
+ @return resulting status of the run. The result must not be <code>null</code>
+ @see #ASYNC_FINISH
+ @see #done(IStatus)
+ atus of the run. The result must not be <code>null</code>
+ @see #A",public abstract,,method,2
+734,P_DATA_STORAGE,,,public static final,,field,1
+735,name_attribute,,,protected static final,,field,1
+737,exporterStatus,,,private,,field,1
+740,endVisit(T),,,,,method,2
+744,store,,,private static final,,field,1
+745,PLUGIN_PARSER_EXTENSION_ID,,,public static final,,field,1
+747,deletedElements,,,public,,field,1
+748,currentProject,,,public,,field,1
